@@ -159,6 +159,7 @@
                             <i></i><i></i><i></i>
                         </span> -->
                         <a href="index.html" class="logo-brand">
+                            <div class="sm-logo"style="height: 70px;"><img src="images/20250409_201357_0000.png" alt="" loading="lazy" class="small-logo"></div>
                             <img src="images/AHA KALYANAM LOGO.png" alt="Logo" loading="lazy" class="ic-logo">
                             <!-- <span class="logo-text">ஆஹா கல்யாணம்</span> -->
                         </a>
@@ -300,8 +301,14 @@
                 <div class="">
                     <div class="profile">
                         <div class="pg-pro-big-im">
-                            <div class="s1 d-flex align-items-end responsive-image-container">
-                                <img src="images/profiles/profile-large.jpg" loading="lazy" class="pro" alt="">
+                            <div class="s1 d-flex align-items-end responsive-image-container position-relative">
+                                <img src="images/profiles/profile-large.jpg" loading="lazy" class="pro" style="width: 100%; height: auto;">
+                                <button id="prevBtn" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); display:none; background:none; border:none;">
+                                    <i class="fa fa-chevron-left" style="font-size:24px; color:rgb(53, 42, 42);"></i>
+                                  </button>
+                                  <button id="nextBtn" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); display:none; background:none; border:none;">
+                                    <i class="fa fa-chevron-right" style="font-size:24px; color:rgb(53, 42, 42);"></i>
+                                  </button>
                             </div>
                             <div class="s3">
                                 <!-- <a href="#!" class="cta fol cta-chat">Chat now</a>
@@ -841,12 +848,47 @@
 
             // Should be: string
 
-            const imagePath = profile.image_1;
+            const imagePath1 = profile.image_1;
+            const imagePath2 = profile.image_2;
 
             document.querySelector(".pro-pg-intro h1").textContent = profile.name;
             document.querySelector(".stat-1 b").textContent = `Regis.No #${userId}`;
             document.querySelector(".stat-2 b").textContent = profile.marital_status;
-            document.querySelector(".pg-pro-big-im .pro").src = `http://159.89.174.77:5000/${imagePath}`;
+            console.log(imagePath1);
+            
+            // document.querySelector(".pg-pro-big-im .pro").src = `http://159.89.174.77:5000/${imagePath1}`;
+          
+
+const proImage = document.querySelector(".pg-pro-big-im .pro");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+let currentImage = 1;  // Start with image 1
+
+// Set first image initially
+proImage.src = `http://159.89.174.77:5000/${imagePath1}`;
+
+// If second image exists, show navigation arrows
+if (imagePath2) {
+    prevBtn.style.display = "block";
+    nextBtn.style.display = "block";
+
+    // Add click event listeners
+    prevBtn.addEventListener("click", () => {
+        if (currentImage === 2) {
+            proImage.src = `http://159.89.174.77:5000/${imagePath1}`;
+            currentImage = 1;
+        }
+    });
+
+    nextBtn.addEventListener("click", () => {
+        if (currentImage === 1) {
+            proImage.src = `http://159.89.174.77:5000/${imagePath2}`;
+            currentImage = 2;
+        }
+    });
+}
+
 
 
             document.querySelector(".pro-pg-intro ul").innerHTML = `
@@ -881,13 +923,17 @@
         <li><b>Gothram:</b> ${profile.gowthram || 'N/A'}</li>
         <li><b>Star:</b> ${profile.star || 'N/A'}</li>
         <li><b>Rasi:</b> ${profile.raasi || 'N/A'}</li>
+        <li><b>Laknam:</b> ${profile.laknam || 'N/A'}</li>
+        <li><b>Padham:</b> ${profile.padam || 'N/A'}</li>
         <li><b>Mother Tongue:</b> ${profile.mother_tongue || 'N/A'}</li>
         <li><b>Disability (If any):</b> ${profile.disability || 'None'}</li>
         <li><b>Father's Job:</b> ${profile.father_job || 'N/A'}</li>
         <li><b>Mother's Job:</b> ${profile.mother_job || 'N/A'}</li>
         <li><b>Siblings:</b> ${profile.no_of_siblings ? profile.no_of_siblings + ' Siblings' : 'N/A'}</li>
+        <li><b>siblings Maritial Status:</b> ${profile.siblings_marital_status}</li>
         <li><b>Diet:</b> ${profile.diet || 'N/A'}</li>
         <li><b>Contact Person:</b> ${profile.contact_person || 'N/A'}</li>
+        <li><b>Other Details:</b> ${profile.other_details || 'N/A'}</li>
         <li><b>Own House:</b> ${profile.own_house || 'N/A'}</li>
         <li style="margin-bottom: 20px;"><b>Other_assets:</b> ${profile.other_assets || 'N/A'}</li>
         </ul>
