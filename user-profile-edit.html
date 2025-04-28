@@ -1425,7 +1425,7 @@ document.getElementById("submitBtn").addEventListener("click", function (e) {
     submitButton.disabled = true;
 
     // Update profile via API
-    fetch(`http://localhost:5000/api/profile/${id}`, {
+    fetch(`http://159.89.174.77:5000/api/profile/${id}`, {
         method: "PUT",
         headers: {
             "Authorization": `Bearer ${token}`
@@ -1450,9 +1450,7 @@ document.getElementById("submitBtn").addEventListener("click", function (e) {
             });
         }
     }).catch(error => {
-        // Re-enable submit button after error
         submitButton.disabled = false;
-
         console.error("Network or server error:", error.message);
         alert("Failed to update profile.");
     });
