@@ -14,6 +14,7 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <!--== CSS FILES ==-->
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -453,9 +454,10 @@
                                             <label class="lb">Email:</label>
                                             <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group position-relative">
                                             <label class="lb">Password:</label>
                                             <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+                                            <i class="bi bi-eye-slash" id="togglePwd" style="position: absolute; top: 40px; right: 15px; cursor: pointer;"></i>
                                         </div>
                                         <div class="form-group form-check">
                                             <label class="form-check-label">
@@ -675,6 +677,19 @@ document.getElementById("logoutBtn").addEventListener("click", async function (e
         return "viewer";
     }
     }
+    document.getElementById('togglePwd').addEventListener('click', function () {
+    const pwdField = document.getElementById('pwd');
+    const icon = this;
+    if (pwdField.type === 'password') {
+        pwdField.type = 'text';
+        icon.classList.remove('bi-eye-slash');
+        icon.classList.add('bi-eye');
+    } else {
+        pwdField.type = 'password';
+        icon.classList.remove('bi-eye');
+        icon.classList.add('bi-eye-slash');
+    }
+});
     </script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
