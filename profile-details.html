@@ -159,7 +159,8 @@
                             <i></i><i></i><i></i>
                         </span> -->
                         <a href="index.html" class="logo-brand">
-                            <div class="sm-logo"style="height: 70px;"><img src="images/20250409_201357_0000.png" alt="" loading="lazy" class="small-logo"></div>
+                            <div class="sm-logo" style="height: 70px;"><img src="images/20250409_201357_0000.png" alt=""
+                                    loading="lazy" class="small-logo"></div>
                             <img src="images/AHA KALYANAM LOGO.png" alt="Logo" loading="lazy" class="ic-logo">
                             <!-- <span class="logo-text">ஆஹா கல்யாணம்</span> -->
                         </a>
@@ -173,7 +174,7 @@
                             <li><a href="all-profiles.html">View Profiles</a></li>
 
                             <li class="plans-link"><a href="plans.html">Plans</a></li>
-                            <li class="register-link"><a href="create-user-profile.html">Register</a></li>
+                            <li class="register-link"><a href="sign-up.html">Register</a></li>
                             <li><a href="about.html">About us</a></li>
 
                             <li class="smenu-pare">
@@ -279,9 +280,9 @@
         <div class="mob-me-clo"><img src="images/icon/close.svg" alt=""></div>
         <div class="mv-bus">
             <div class="head-pro">
-                <img src="images/profiles/1.jpg" alt="" loading="lazy">
-                <b>user profile</b><br>
-                <h4>Ashley emyy</h4>
+                <img src="images/20250409_201357_0000.png" alt="" loading="lazy">
+                <b>Aahakalyanam</b><br>
+                <h4>Support</h4>
             </div>
             <ul>
                 <li><a href="login.html">Login</a></li>
@@ -302,13 +303,16 @@
                     <div class="profile">
                         <div class="pg-pro-big-im">
                             <div class="s1 d-flex align-items-end responsive-image-container position-relative">
-                                <img src="images/profiles/profile-large.jpg" loading="lazy" class="pro" style="width: 100%; height: auto;">
-                                <button id="prevBtn" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); display:none; background:none; border:none;">
-                                    <i class="fa fa-chevron-left" style="font-size:24px; color:rgb(53, 42, 42);"></i>
-                                  </button>
-                                  <button id="nextBtn" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); display:none; background:none; border:none;">
-                                    <i class="fa fa-chevron-right" style="font-size:24px; color:rgb(53, 42, 42);"></i>
-                                  </button>
+                                <img src="images/profiles/profile-large.jpg" loading="lazy" class="pro"
+                                    style="width: 100%; height: 600px;">
+                                <button id="prevBtn"
+                                    style="position:absolute; left:10px; top:50%; transform:translateY(-50%); display:none; background:none; border:none;">
+                                    <i class="fa fa-chevron-left" style="font-size: 14px; color: rgb(63, 63,63); padding: 15px 18px; background-color: aliceblue; border-radius: 50%;"></i>
+                                </button>
+                                <button id="nextBtn"
+                                    style="position:absolute; right:10px; top:50%; transform:translateY(-50%); display:none; background:none; border:none;">
+                                    <i class="fa fa-chevron-right" style="font-size: 14px; color: rgb(63, 63, 63); padding: 15px 18px; background-color: aliceblue; border-radius: 50%;"></i>
+                                </button>
                             </div>
                             <div class="s3">
                                 <!-- <a href="#!" class="cta fol cta-chat">Chat now</a>
@@ -744,33 +748,27 @@
             const token = localStorage.getItem("access_token");
 
 
-            try {
-                const response = await fetch("http://159.89.174.77:5000/api/logout", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`
-
-                    },
-
-                });
-
+            fetch("http://159.89.174.77:5000/api/logout", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            }).then(response => {
                 if (response.status === 200) {
                     console.log("The decoded token!!!");
-                    // Redirect to index.js (or your login/homepage)
                     localStorage.removeItem("access_token");
-
-                    window.location.href = "index.html";
+                    alert("Logged out Successfully");
+                    window.location.href = "index.html"; // Redirect to homepage or login
                 } else {
                     localStorage.removeItem("access_token");
                     location.reload();
-
-                    alert("Session expired. Please log in again.");
+                    alert("Session expired, please login again.");
                 }
-            } catch (error) {
+            }).catch(error => {
                 console.error("Logout error:", error);
                 alert("Something went wrong. Please try again later.");
-            }
+            });
         });
 
 
@@ -843,51 +841,50 @@
                     textarea.value = value;
                 }
             }
-
-
-
-            // Should be: string
-
             const imagePath1 = profile.image_1;
             const imagePath2 = profile.image_2;
 
+
+            // Should be: string
             document.querySelector(".pro-pg-intro h1").textContent = profile.name;
             document.querySelector(".stat-1 b").textContent = `Regis.No #${userId}`;
             document.querySelector(".stat-2 b").textContent = profile.marital_status;
             console.log(imagePath1);
-            
-            // document.querySelector(".pg-pro-big-im .pro").src = `http://159.89.174.77:5000/${imagePath1}`;
-          
 
-const proImage = document.querySelector(".pg-pro-big-im .pro");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
+            // Image carosal Start
 
-let currentImage = 1;  // Start with image 1
 
-// Set first image initially
-proImage.src = `http://159.89.174.77:5000/${imagePath1}`;
 
-// If second image exists, show navigation arrows
-if (imagePath2) {
-    prevBtn.style.display = "block";
-    nextBtn.style.display = "block";
+            const proImage = document.querySelector(".pg-pro-big-im .pro");
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
 
-    // Add click event listeners
-    prevBtn.addEventListener("click", () => {
-        if (currentImage === 2) {
-            proImage.src = `http://159.89.174.77:5000/${imagePath1}`;
-            currentImage = 1;
-        }
-    });
+            const images = [
+            `http://159.89.174.77:5000/${imagePath1}`,
+            `http://159.89.174.77:5000/${imagePath2}`
+            ];
 
-    nextBtn.addEventListener("click", () => {
-        if (currentImage === 1) {
-            proImage.src = `http://159.89.174.77:5000/${imagePath2}`;
-            currentImage = 2;
-        }
-    });
-}
+            let currentImage = 0; 
+            proImage.src = images[currentImage];
+
+            if (imagePath2) {
+            prevBtn.style.display = "block";
+            nextBtn.style.display = "block";
+
+            // Looping next
+            nextBtn.addEventListener("click", () => {
+                currentImage = (currentImage + 1) % images.length;
+                proImage.src = images[currentImage];
+            });
+
+            // Looping previous
+            prevBtn.addEventListener("click", () => {
+                currentImage = (currentImage - 1 + images.length) % images.length;
+                proImage.src = images[currentImage];
+            });
+            }
+            // Image Carosal End
+
 
 
 
@@ -911,15 +908,15 @@ if (imagePath2) {
         <li><b>Name:</b> ${profile.name || 'N/A'}</li>  
         <li><b>Father's Name:</b> ${profile.father_name || 'N/A'}</li>
         <li><b>Age:</b> ${profile.age || 'N/A'}</li>
-        <li><b>Date of Birth:</b> ${profile.date_of_birth ? new Date(profile.date_of_birth).toLocaleDateString() : 'N/A'}</li>
-        <li><b>Height:</b> ${profile.height ? profile.height + ' cm' : 'N/A'}</li>
+        <li><b>Date of Birth:</b> ${profile.date_of_birth ? new Date(profile.date_of_birth).toLocaleDateString('en-GB') : 'N/A'}</li>
+        <li><b>Height:</b> ${profile.height ? profile.height : 'N/A'}</li>
         <li><b>Weight:</b> ${profile.weight ? profile.weight + ' kg' : 'N/A'}</li>
         <li><b>Degree:</b> ${profile.qualification || 'N/A'}</li>
         <li><b>Religion:</b> ${profile.religion || 'N/A'}</li>
         <li><b>Profession:</b> ${profile.job || 'N/A'}</li>
         <li><b>Company:</b> ${profile.place_of_job || 'N/A'}</li>
         <li><b>Position:</b> ${profile.position || 'N/A'}</li>
-        <li><b>Salary:</b> ${profile.income_per_month ? '₹' + profile.income_per_month + ' p/m' : 'N/A'}</li>
+        <li><b>Salary:</b> ${profile.income_per_month ? '₹ ' + parseInt(profile.income_per_month) + ' p/m' : 'N/A'}</li>
         <li><b>Gothram:</b> ${profile.gowthram || 'N/A'}</li>
         <li><b>Star:</b> ${profile.star || 'N/A'}</li>
         <li><b>Rasi:</b> ${profile.raasi || 'N/A'}</li>
@@ -944,13 +941,13 @@ if (imagePath2) {
 
             const heading = document.createElement("h3");
             heading.innerHTML = "<b>Life Partner Expectations:</b>";
-            heading.style.margin ="unset"
+            heading.style.margin = "unset"
             prBioInfo.appendChild(heading);
 
             const partnerList = document.createElement("ul");
             partnerList.innerHTML = `
              <li><b>Qualification:</b> ${profile.partner_qualification || 'N/A'}</li>
-             <li><b>Income/month:</b> ${profile.partner_income ? '₹' + profile.partner_income : 'N/A'}</li>
+             <li><b>Income/month:</b> ${profile.partner_income ? '₹ ' + parseInt(profile.partner_income)  : 'N/A'}</li>
              <li><b>Marital Status:</b> ${profile.partner_marital_status || 'N/A'}</li>
             `;
             prBioInfo.appendChild(partnerList);

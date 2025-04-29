@@ -169,7 +169,7 @@
                             <li><a href="all-profiles.html">View Profiles</a></li>                           
 
                             <li class="plans-link"><a href="plans.html">Plans</a></li>
-                               <li class="register-link"><a href="create-user-profile.html">Register</a></li>
+                               <li class="register-link"><a href="sign-up.html">Register</a></li>
    
                                <li class="smenu-pare">
                                    <span class="smenu dashboard-section">Dashboard</span>
@@ -265,9 +265,9 @@
         <div class="mob-me-clo"><img src="images/icon/close.svg" alt=""></div>
         <div class="mv-bus">
             <div class="head-pro">
-                <img src="images/profiles/1.jpg" alt="" loading="lazy">
-                <b>user profile</b><br>
-                <h4>Ashley emyy</h4>
+                <img src="images/20250409_201357_0000.png" alt="" loading="lazy">
+                <b>Aahakalyanam</b><br>
+                <h4>Support</h4>
             </div>
             <ul>
                 <li><a href="login.html">Login</a></li>
@@ -1108,6 +1108,32 @@
 
 
     <script>
+        document.getElementById("logoutBtn").addEventListener("click", async function (e) {
+    e.preventDefault(); // Prevent default link behavior
+    const token = localStorage.getItem("access_token");
+
+    fetch("http://159.89.174.77:5000/api/logout", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            }).then(response => {
+                    if (response.status === 200) {
+                        console.log("The decoded token!!!");
+                        localStorage.removeItem("access_token");
+                        alert("Logged out Successfully");
+                        window.location.href = "index.html"; // Redirect to homepage or login
+                    } else {
+                        localStorage.removeItem("access_token");
+                        location.reload();
+                        alert("Session expired, please login again.");
+                    }
+                }).catch(error => {
+                    console.error("Logout error:", error);
+                    alert("Something went wrong. Please try again later.");
+                });
+  });
 
 const role = getUserRoleFromToken();
 

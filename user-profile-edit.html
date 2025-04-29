@@ -449,7 +449,7 @@
                                         <div class="row">
                                             <div class="col-md-4 form-group">
                                                 <label class="lb">Hieght/உயரம் </label>
-                                                <input type="number" name="height" class="form-control">
+                                                <input type="text" name="height" class="form-control">
                                             </div>
                                             <div class="col-md-4 form-group">
                                                 <label class="lb">Weight/எடை
@@ -809,8 +809,7 @@
                                         <div class="edit-pro-parti">
                                             <div class="form-tit">
                                                 <h4>Basic info</h4>
-                                                <h1>Partner Expectation Details/பங்குதாரர் எதிர்பார்ப்பு விவரங்கள்
-
+                                                <h1>Partner Expectation Details/வாழ்க்கை துணை பற்றிய எதிர்பார்ப்பு
                                                 </h1>
                                             </div>
 
@@ -1211,13 +1210,13 @@
     fetch(`http://159.89.174.77:5000/api/view-profile/${id}`)
         .then(response => response.json())
         .then(data => {
-            console.log("Fetched data:", data);
+            console.log("Fetched data:", data.data);
 
             const profilePhotoPath1 = data.data["image_1"];
             const profilePhotoPath2 = data.data["image_2"];
 
-            let correctedPath1 = profilePhotoPath1.replace(/\\/g, '/');
-            let correctedPath2 = profilePhotoPath2.replace(/\\/g, '/');
+            let correctedPath1 = profilePhotoPath1?.replace(/\\/g, '/');
+            let correctedPath2 = profilePhotoPath2?.replace(/\\/g, '/');
 
             console.log("Corrected path: ", correctedPath1);
             console.log("Corrected path: ", correctedPath2);
@@ -1433,7 +1432,8 @@ document.getElementById("submitBtn").addEventListener("click", function (e) {
             return response.json().then(data => {
                 console.log("Successfully updated:", data);
                 alert("Profile updated successfully!");
-                window.location.href = "index.html"; // Redirect after success
+                let userid = getQueryParam("id");
+                window.location.href = `view-user-profile.html?id=${userid}`; // Redirect after success
             });
         } else {
             return response.json().then(err => {

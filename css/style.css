@@ -254,6 +254,20 @@ img{
 .form-group {
     margin-bottom: 1rem;
 }
+.pdf-table strong{
+    color: #000 !important;
+    font-weight: 900 !important;
+}
+.pdf-table *{
+    padding: 5px 20px !important;
+}
+.pdf-table tr td:first-child {
+    padding: unset !important;
+    white-space: nowrap;
+  }
+.pdf-table tr td strong{
+    padding: unset !important;
+  }
 /*-------------------------------------------------------*/
 /* PRELOAD
 /*-------------------------------------------------------*/
@@ -624,6 +638,8 @@ img{
 
 .hom-nav {
     width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .logo-text {
@@ -5111,7 +5127,7 @@ span.mail::before {
 .pg-pro-big-im .s1 {
     position: absolute;
     left: 0;
-    top: 50px;
+    top: 35px;
     bottom: 0;
     height: 100%;
     width: 100%;
