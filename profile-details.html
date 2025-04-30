@@ -188,7 +188,7 @@
 
                                 </div>
                             </li>
-                            <li class="signin-only"><a href="login.html">Sign in</a></li>
+                            <li class="signin-only"><a href="#" onclick="redirectToLogin()">Sign in</a></li>
                             <li class="my-profile"><a href="user-profile.html">My profile</a></li>
                             <li class="download-form"> <a href="/assets/pdfs/PDF%20ahh.pdf" download>Download PDF</a>
                             </li>
@@ -244,7 +244,7 @@
             <li><a href="plans.html">Plans</a></li>
             <li id="register-link"><a href="sign-up.html">Register</a></li>
             <li><a href="about.html">About us</a></li>
-            <li class='mob-signin1'><a href="login.html">Login</a></li>
+            <li class='mob-signin1'><a href="#" onclick="redirectToLogin()">Login</a></li>
             </ul>                                   
         <div class="menu-pop-help">
             <h4>Support Team</h4>
@@ -282,7 +282,7 @@
                 <li class='dashboard-mob'><a href="user-dashboard.html">Dashboard</a></li>
                 <li class='user-profile-mob'><a href="user-profile.html">My profiles</a></li>
                 <li class="register-link"><a href="sign-up.html">Register</a></li>
-                <li class='mob-signin'><a href="login.html">Login</a></li>
+                <li class='mob-signin'><a href="#" onclick="redirectToLogin()">Login</a></li>
                 <li><a href="plans.html">View plans</a></li>
                 
             </ul>
@@ -739,7 +739,10 @@
 
     <script>
 
-
+function redirectToLogin(){
+    const currentUrl = encodeURIComponent(window.location.href);
+window.location.href = `login.html?redirect=${currentUrl}`;
+}
 
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -767,7 +770,7 @@
                     return response.json();
                 })
                 .then(data => {
-                    console.log("Fetched Profile Data:", data); // Log response JSON
+                    console.log("Fetched Profile Data"); // Log response JSON
 
                     updateProfilePage(data);
                 })
@@ -779,14 +782,12 @@
 
             let profile = data.data; // Assuming the API returns an array of profiles
             let horoscopeJson = data.data['horoscope']; // Assuming the API returns horoscope data as JSON string
-            console.log(horoscopeJson); // Should be: string
             const horoscopeData = JSON.parse(horoscopeJson);
 
-            console.log(horoscopeData); // Log the arrays
 
-            console.log(typeof horoscopeData);
+
             const horoscopeData2 = JSON.parse(horoscopeData);
-            console.log(horoscopeData2.rasi); // Log the arrays
+
 
 
 
@@ -817,146 +818,119 @@
             document.querySelector(".pro-pg-intro h1").textContent = profile.name;
             document.querySelector(".stat-1 b").textContent = `Regis.No #${userId}`;
             document.querySelector(".stat-2 b").textContent = profile.marital_status;
-            console.log(imagePath1);
+
 
             // Image carosal Start
 
 
-
             const proImage = document.querySelector(".pg-pro-big-im .pro");
-            const prevBtn = document.getElementById("prevBtn");
-            const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
 
-            const images = [
-            `http://159.89.174.77:5000/${imagePath1}`,
-            `http://159.89.174.77:5000/${imagePath2}`
-            ];
+// Construct image array and remove falsy entries
+const images = [
+  imagePath1 && `http://159.89.174.77:5000/${imagePath1}`,
+  imagePath2 && `http://159.89.174.77:5000/${imagePath2}`
+].filter(Boolean); // Removes undefined or null
 
-            let currentImage = 0; 
-            proImage.src = images[currentImage];
+let currentImage = 0;
+proImage.src = images[currentImage];
 
-            if (imagePath2) {
-            prevBtn.style.display = "block";
-            nextBtn.style.display = "block";
+// Handle navigation buttons
+if (images.length > 1) {
+  prevBtn.style.display = "block";
+  nextBtn.style.display = "block";
 
-            // Looping next
-            nextBtn.addEventListener("click", () => {
-                currentImage = (currentImage + 1) % images.length;
-                proImage.src = images[currentImage];
-            });
+  nextBtn.addEventListener("click", () => {
+    currentImage = (currentImage + 1) % images.length;
+    proImage.src = images[currentImage];
+  });
 
-            // Looping previous
-            prevBtn.addEventListener("click", () => {
-                currentImage = (currentImage - 1 + images.length) % images.length;
-                proImage.src = images[currentImage];
-            });
-            }
+  prevBtn.addEventListener("click", () => {
+    currentImage = (currentImage - 1 + images.length) % images.length;
+    proImage.src = images[currentImage];
+  });
+} else {
+  prevBtn.style.display = "none";
+  nextBtn.style.display = "none";
+}
+
             // Image Carosal End
 
 
-
+            let role = getUserRoleFromToken();
 
             document.querySelector(".pro-pg-intro ul").innerHTML = `
-        <li><div><img src="images/icon/pro-city.png" alt=""><span>City: <strong>${profile.city}</strong></span></div></li>
-        <li><div><img src="images/icon/pro-age.png" alt=""><span>Age: <strong>${profile.age}</strong></span></div></li>
-        <li><div><img src="images/icon/pro-city.png" alt=""><span>Height: <strong>${profile.height}</strong></span></div></li>
-        <li><div><img src="images/icon/pro-city.png" alt=""><span>Job: <strong>${profile.job}</strong></span></div></li>
+        <li><div><img src="images/icon/pro-city.png" alt=""><span>City: <strong>${profile.city?profile.city :"Not Specified"}</strong></span></div></li>
+        <li><div><img src="images/icon/pro-age.png" alt=""><span>Age: <strong>${profile.age?profile.age :"Not Specified"}</strong></span></div></li>
+        <li><div><img src="images/icon/pro-city.png" alt=""><span>Height: <strong>${profile.height?profile.height :"Not Specified"}</strong></span></div></li>
+        <li><div><img src="images/icon/pro-city.png" alt=""><span>Job: <strong>${profile.job?profile.job: "Not Specified"}</strong></span></div></li>
     `;
 
-            const personalInfoContainer = document.querySelector(".pr-bio-info");
-
+            const personalInfoContainer = document.querySelector(".pr-bio-info ul");
+            const contactInfoContainer = document.querySelector(".pr-bio-conta ul");
             // Clear any existing content
             personalInfoContainer.innerHTML = '';
+            if (role === "admin" || role === "moderator") {
+    // Show full personal and contact details
+    personalInfoContainer.innerHTML = `
+        <ul>
+            <li><b>Name:</b> ${profile.name || 'N/A'}</li>
+            <li><b>Father's Name:</b> ${profile.father_name || 'N/A'}</li>
+            <li><b>Age:</b> ${profile.age || 'N/A'}</li>
+            <li><b>Date of Birth:</b> ${profile.date_of_birth ? new Date(profile.date_of_birth).toLocaleDateString('en-GB') : 'N/A'}</li>
+            <li><b>Height:</b> ${profile.height || 'N/A'}</li>
+            <li><b>Weight:</b> ${profile.weight ? profile.weight + ' kg' : 'N/A'}</li>
+            <li><b>Degree:</b> ${profile.qualification || 'N/A'}</li>
+            <li><b>Religion:</b> ${profile.religion || 'N/A'}</li>
+            <li><b>Profession:</b> ${profile.job || 'N/A'}</li>
+            <li><b>Company:</b> ${profile.place_of_job || 'N/A'}</li>
+            <li><b>Position:</b> ${profile.position || 'N/A'}</li>
+            <li><b>Salary:</b> ${profile.income_per_month ? '₹ ' + parseInt(profile.income_per_month) + ' p/m' : 'N/A'}</li>
+            <li><b>Gothram:</b> ${profile.gowthram || 'N/A'}</li>
+            <li><b>Star:</b> ${profile.star || 'N/A'}</li>
+            <li><b>Rasi:</b> ${profile.raasi || 'N/A'}</li>
+            <li><b>Laknam:</b> ${profile.laknam || 'N/A'}</li>
+            <li><b>Padham:</b> ${profile.padam || 'N/A'}</li>
+            <li><b>Mother Tongue:</b> ${profile.mother_tongue || 'N/A'}</li>
+            <li><b>Disability (If any):</b> ${profile.disability || 'None'}</li>
+            <li><b>Father's Job:</b> ${profile.father_job || 'N/A'}</li>
+            <li><b>Mother's Job:</b> ${profile.mother_job || 'N/A'}</li>
+            <li><b>Siblings:</b> ${profile.no_of_siblings || 'N/A'}</li>
+            <li><b>Siblings Marital Status:</b> ${profile.siblings_marital_status || 'N/A'}</li>
+            <li><b>Diet:</b> ${profile.diet || 'N/A'}</li>
+            <li><b>Other Details:</b> ${profile.other_details || 'N/A'}</li>
+            <li><b>Own House:</b> ${profile.own_house || 'N/A'}</li>
+            <li><b>Other Assets:</b> ${profile.other_assets || 'N/A'}</li>
+        </ul>`;
 
-            // Create and append dynamic list items
-            personalInfoContainer.innerHTML = `
-            <div>
-             <h3>Personal information</h3>
-    <ul>
-        <li><b>Name:</b> ${profile.name || 'N/A'}</li>  
-        <li><b>Father's Name:</b> ${profile.father_name || 'N/A'}</li>
-        <li><b>Age:</b> ${profile.age || 'N/A'}</li>
-        <li><b>Date of Birth:</b> ${profile.date_of_birth ? new Date(profile.date_of_birth).toLocaleDateString('en-GB') : 'N/A'}</li>
-        <li><b>Height:</b> ${profile.height ? profile.height : 'N/A'}</li>
-        <li><b>Weight:</b> ${profile.weight ? profile.weight + ' kg' : 'N/A'}</li>
-        <li><b>Degree:</b> ${profile.qualification || 'N/A'}</li>
-        <li><b>Religion:</b> ${profile.religion || 'N/A'}</li>
-        <li><b>Profession:</b> ${profile.job || 'N/A'}</li>
-        <li><b>Company:</b> ${profile.place_of_job || 'N/A'}</li>
-        <li><b>Position:</b> ${profile.position || 'N/A'}</li>
-        <li><b>Salary:</b> ${profile.income_per_month ? '₹ ' + parseInt(profile.income_per_month) + ' p/m' : 'N/A'}</li>
-        <li><b>Gothram:</b> ${profile.gowthram || 'N/A'}</li>
-        <li><b>Star:</b> ${profile.star || 'N/A'}</li>
-        <li><b>Rasi:</b> ${profile.raasi || 'N/A'}</li>
-        <li><b>Laknam:</b> ${profile.laknam || 'N/A'}</li>
-        <li><b>Padham:</b> ${profile.padam || 'N/A'}</li>
-        <li><b>Mother Tongue:</b> ${profile.mother_tongue || 'N/A'}</li>
-        <li><b>Disability (If any):</b> ${profile.disability || 'None'}</li>
-        <li><b>Father's Job:</b> ${profile.father_job || 'N/A'}</li>
-        <li><b>Mother's Job:</b> ${profile.mother_job || 'N/A'}</li>
-        <li><b>Siblings:</b> ${profile.no_of_siblings ? profile.no_of_siblings + ' Siblings' : 'N/A'}</li>
-        <li><b>siblings Maritial Status:</b> ${profile.siblings_marital_status}</li>
-        <li><b>Diet:</b> ${profile.diet || 'N/A'}</li>
-        <li><b>Contact Person:</b> ${profile.contact_person || 'N/A'}</li>
-        <li><b>Other Details:</b> ${profile.other_details || 'N/A'}</li>
-        <li><b>Own House:</b> ${profile.own_house || 'N/A'}</li>
-        <li style="margin-bottom: 20px;"><b>Other_assets:</b> ${profile.other_assets || 'N/A'}</li>
-        </ul>
-         </div>
-        `;
+    contactInfoContainer.innerHTML = `
+        <li><span><i class="fa fa-mobile" aria-hidden="true"></i><b>Phone:</b> ${profile.contact_number || 'N/A'}</span></li>
+        <li><span><i class="fa fa-envelope-o" aria-hidden="true"></i><b>Contact person:</b> ${profile.contact_person || 'N/A'}</span></li>
+        <li><span><i class="fa fa-map-marker" aria-hidden="true"></i><b>Address:</b> ${profile.permanent_address || 'N/A'}</span></li>`;
 
-            const prBioInfo = document.querySelector(".pr-bio-info");
+} else if (role === "user") {
+    // Show only personal details
+    personalInfoContainer.innerHTML = `...`; // Same <ul> as above, without contact
 
-            const heading = document.createElement("h3");
-            heading.innerHTML = "<b>Life Partner Expectations:</b>";
-            heading.style.margin = "unset"
-            prBioInfo.appendChild(heading);
-
-            const partnerList = document.createElement("ul");
-            partnerList.innerHTML = `
-             <li><b>Qualification:</b> ${profile.partner_qualification || 'N/A'}</li>
-             <li><b>Income/month:</b> ${profile.partner_income ? '₹ ' + parseInt(profile.partner_income)  : 'N/A'}</li>
-             <li><b>Marital Status:</b> ${profile.partner_marital_status || 'N/A'}</li>
-            `;
-            prBioInfo.appendChild(partnerList);
-
-            const contactInfoContainer = document.querySelector(".pr-bio-conta ul");
-            contactInfoContainer.innerHTML = `
-            <li><span><i class="fa fa-mobile" aria-hidden="true"></i><b>Phone:</b> ${profile.contact_number || 'N/A'}</span></li>
-            <li><span><i class="fa fa-envelope-o" aria-hidden="true"></i><b>Contact person name:</b> ${profile.contact_person || 'N/A'}</span></li>
-            <li><span><i class="fa fa-map-marker" aria-hidden="true"></i><b>Address:</b> ${profile.permanent_address || 'N/A'}</span></li>
-        `;
-
-
-
-
-            const gallery = document.querySelector("#image-gallery");
-
-            console.log(profile.image_2)
-
-            gallery.innerHTML = profile.gallery.map(image => `
-    <div class="pro-gal-imag">
-        <div class="img-wrapper">
-            <a href="#!">
-                <img src="${image}" class="img-responsive gallery-img" alt="">
-            </a>
-            <div class="img-overlay"><i class="fa fa-arrows-alt" aria-hidden="true"></i></div>
-        </div>
-    </div>
-`).join("");
-
-
-
-
-            document.querySelector(".pr-bio-abo p").textContent = profile.about;
-
-
-
-
-
-
-
-
+    contactInfoContainer.innerHTML = `
+        <li><span><i class="fa fa-lock"></i> Please <a href="plans.html">purchase a plan</a> to view contact details.</span></li>
+        <div class='d-flex justify-content-center'>
+            <a href="plans.html" class="btn btn-primary">Purchase  Plan</a>
+        </div>`;
+} else {
+    // Guest or no valid role — hide everything
+    contactInfoContainer.innerHTML = `
+        <li><span><i class="fa fa-lock"></i> Please <a href="plans.html">purchase a plan</a> to view contact details.</span></li>
+        <div class='d-flex justify-content-center'>
+            <a href="plans.html" class="btn btn-primary">Purchase  Plan</a>
+        </div>`;
+    personalInfoContainer.innerHTML = `
+        <div class="block"><i class="fa fa-lock"></i> Please <a href="/pricing">purchase a plan</a> to view profile details.</div>
+        <div class='d-flex justify-content-center'>
+            <a href="plans.html" class="btn btn-primary">Purchase  Plan</a>
+        </div>`;
+}
         }
 
         function fetchRelatedProfiles() {
@@ -964,7 +938,7 @@
             fetch(`http://159.89.174.77:5000/api/profile/${profileId}`)
                 .then(response => response.json())
                 .then(data => {
-                    console.log("Fetched related profiles:", data);
+                    console.log("Fetched profiles Successfully");
                     // Logic to display related profiles on the page
                 })
                 .catch(error => {
@@ -1109,7 +1083,10 @@ async function handleLogout(e) {
             }
 
 
-            function getUserRoleFromToken() {
+           
+        });
+
+         function getUserRoleFromToken() {
                 const token = localStorage.getItem("access_token");
 
                 if (!token) return "viewer"; // Not signed in
@@ -1124,8 +1101,6 @@ async function handleLogout(e) {
                     return "viewer";
                 }
             }
-        });
-
 // role based menu End
 
 

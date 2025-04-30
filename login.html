@@ -522,43 +522,37 @@
     <script>
 
 document.getElementById("loginForm").addEventListener("submit", async function(event) {
-    event.preventDefault(); // Prevent form from reloading the page
+    event.preventDefault();
 
-    // Get email and password values
     const email = document.getElementById("email").value;
     const password = document.getElementById("pwd").value;
 
     try {
-        // Send login request to API
         const response = await fetch("http://159.89.174.77:5000/api/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password })
         });
 
-        if (!response.ok) {
-            throw new Error("Login failed!");
-        }
+        if (!response.ok) throw new Error("Login failed!");
 
         const data = await response.json();
         const accessToken = data.message.token;
-        console.log("Access Token:", accessToken);
-
-        // Store token in local storage
         localStorage.setItem("access_token", accessToken);
 
-        const accessToken2 = localStorage.getItem("access_token");
-        console.log("Access Token from local storage:", accessToken2);
-
-        
-
         alert("Login successful!");
-        window.location.href = "index.html"; // Redirect to another page after login
+
+        // Get redirect target from URL parameter
+        const params = new URLSearchParams(window.location.search);
+        const redirectTo = params.get("redirect") || "index.html";
+        window.location.href = redirectTo;
+
     } catch (error) {
         console.error("Error:", error.message);
         alert("Login failed. Please try again.");
     }
 });
+
     </script>
 
 

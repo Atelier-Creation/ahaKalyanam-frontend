@@ -176,7 +176,7 @@
                                            <li><a href="user-dashboard.html">Dashboard</a></li>
                                            <li class="user-profile"><a href="user-profile.html">My profile</a></li>
                                            <li><a href="user-interests.html">Interests</a></li>
-                                           <li><a href="login.html">Sign in</a></li>
+                                           <li><a href="#" onclick="redirectToLogin()">Sign in</a></li>
                                        </ul>
                                    </div>
                                </li>
@@ -228,7 +228,7 @@
             <li><a href="plans.html">Plans</a></li>
             <li id="register-link"><a href="sign-up.html">Register</a></li>
             <li><a href="about.html">About us</a></li>
-            <li class='mob-signin1'><a href="login.html">Login</a></li>
+            <li class='mob-signin1'><a href="#" onclick="redirectToLogin()">Login</a></li>
             </ul>                                   
         <div class="menu-pop-help">
             <h4>Support Team</h4>
@@ -266,7 +266,7 @@
                 <li class='dashboard-mob'><a href="user-dashboard.html">Dashboard</a></li>
                 <li class='user-profile-mob'><a href="user-profile.html">My profiles</a></li>
                 <li class="register-link"><a href="sign-up.html">Register</a></li>
-                <li class='mob-signin'><a href="login.html">Login</a></li>
+                <li class='mob-signin'><a href="#" onclick="redirectToLogin()">Login</a></li>
                 <li><a href="plans.html">View plans</a></li>
                 
             </ul>
@@ -379,6 +379,11 @@
 
 
     <script>
+        function redirectToLogin(){
+    const currentUrl = encodeURIComponent(window.location.href);
+window.location.href = `login.html?redirect=${currentUrl}`;
+}
+
 
 async function handleLogout(e) {
         e.preventDefault();

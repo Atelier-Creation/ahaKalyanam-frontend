@@ -190,7 +190,7 @@
                                         <li><a href="contact.html">Contact</a></li>
                                         <li><a href="photo-gallery.html">Photo gallery</a></li>
                                         <li><a href="photo-gallery-1.html">Photo gallery 1</a></li>
-                                        <li><a href="login.html">Login</a></li>
+                                        <li><a href="#" onclick="redirectToLogin()">Login</a></li>
                                         <li><a href="sign-up.html">Sign-up</a></li>
                                         <li><a href="plans.html">Pricing plans</a></li>
                                     </ul>
@@ -218,7 +218,7 @@
 
 
 
-                            <li class="signin-only"><a href="login.html">Sign in</a></li>
+                            <li class="signin-only"><a href="#" onclick="redirectToLogin()">Sign in</a></li>
                             <li class="logout-only">
                                 <a href="#" id="logoutBtn">Logout</a>
                             </li>
@@ -267,7 +267,7 @@
                 <li><a href="plans.html">Plans</a></li>
                 <li id="register-link"><a href="sign-up.html">Register</a></li>
                 <li><a href="about.html">About us</a></li>
-                <li class='mob-signin1'><a href="login.html">Login</a></li>
+                <li class='mob-signin1'><a href="#" onclick="redirectToLogin()">Login</a></li>
                 </ul>                                   
             <div class="menu-pop-help">
                 <h4>Support Team</h4>
@@ -305,7 +305,7 @@
                 <li class='dashboard-mob'><a href="user-dashboard.html">Dashboard</a></li>
                 <li class='user-profile-mob'><a href="user-profile.html">My profiles</a></li>
                 <li class="register-link"><a href="sign-up.html">Register</a></li>
-                <li class='mob-signin'><a href="login.html">Login</a></li>
+                <li class='mob-signin'><a href="#" onclick="redirectToLogin()">Login</a></li>
                 <li><a href="plans.html">View plans</a></li>
                 
             </ul>
@@ -1662,6 +1662,10 @@ async function handleLogout(e) {
 
 // role based menu End
 
+function redirectToLogin(){
+    const currentUrl = encodeURIComponent(window.location.href);
+window.location.href = `login.html?redirect=${currentUrl}`;
+}
 
 
 
