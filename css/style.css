@@ -2434,8 +2434,8 @@ table td{}
 .home-acces ul li div.hacc .con img {
     /* border: 3px solid rgb(0, 0, 0); */
     width: 100%;
-    padding: 20px;
-    border-radius: 10%;
+    /* padding: 20px; */
+    border-radius: 15px;
     object-fit: cover;
     margin-bottom: 35px;
     transition: all 0.5s ease-in-out 0s;
@@ -11554,9 +11554,9 @@ h2.db-tit{
         padding-bottom: 0;
     }
 
-    .home-acces ul li {
+    /* .home-acces ul li {
         width: 100%;
-    }
+    } */
 
     .wedd-tline .inn {
         width: 100%;
@@ -12127,9 +12127,9 @@ h2.db-tit{
 /*-------------------------------------------------------*/
 @media screen and (max-width:526px) {
     .home-acces ul li div.hacc .con img {
-        border: 3px solid #000;
+        /* border: 3px solid #000; */
         width: 85px;
-        padding: 10px;
+        padding: 0px;
         margin-bottom: 15px;
     }
 
@@ -12710,3 +12710,18 @@ wrapper1{
     text-align: center;
     padding: 10px;
   } */
+
+  .nav-btn {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: #f0f0f0;
+}

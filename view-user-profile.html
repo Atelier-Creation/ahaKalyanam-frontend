@@ -224,60 +224,59 @@
     </div>
     <!-- END HEADER & MENU -->
 
-    <!-- MOBILE MENU POPUP -->
-    <div class="mob-me-all mobile_menu">
-        <div class="mob-me-clo"><img src="images/icon/close.svg" alt=""></div>
-        <div class="mv-bus">
-            <h4><i class="fa fa-globe" aria-hidden="true"></i> EXPLORE CATEGORY</h4>
-            <ul>
-                <li><a href="all-profiles.html">View Profiles</a></li>
-                <li><a href="plans.html">Plans</a></li>
-            </ul>
-            <h4><i class="fa fa-align-center" aria-hidden="true"></i> All Pages</h4>
-            <ul>
-        
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="about.html">About</a></li>
-    
-            </ul>
-            <div class="menu-pop-help">
-                <h4>Support Team</h4>
-                <div class="user-pro">
-                    <img src="images/20250409_201357_0000.png" alt="" loading="lazy">
-                </div>
-                <div class="user-bio">
-                    <h5>Aahakalyanam</h5>
-                    <span>aahakalynaminfo@gmail.com</span>
-                </div>
+  <!-- MOBILE MENU POPUP -->
+  <div class="mob-me-all mobile_menu">
+    <div class="mob-me-clo"><img src="images/icon/close.svg" alt=""></div>
+    <div class="mv-bus">
+        <h4><i class="fa fa-globe" aria-hidden="true"></i> More Menu</h4>
+        <ul>
+            <li><a href="all-profiles.html">View Profiles</a></li>
+            <li><a href="plans.html">Plans</a></li>
+            <li id="register-link"><a href="sign-up.html">Register</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li class='mob-signin1'><a href="login.html">Login</a></li>
+            </ul>                                   
+        <div class="menu-pop-help">
+            <h4>Support Team</h4>
+            <div class="user-pro">
+                <img src="images/20250409_201357_0000.png" alt="" loading="lazy">
             </div>
-            
-            
-            <div class="prof-rhs-help">
-                <div class="inn">
-                    <h3>Welcome</h3>
-                    <p>Sign-in to explore mroe features </p>
-                    <a href="sign-up.html">Register for free</a>
-                </div>
+            <div class="user-bio">
+                <h5>Aahakalyanam</h5>
+                <span>aahakalynaminfo@gmail.com</span>
+            </div>
+        </div>
+
+
+        <div class="prof-rhs-help">
+            <div class="inn">
+                <h3>Welcome</h3>
+                <p>Sign-in to explore more features </p>
+                <a href="sign-up.html">Register for free</a>
             </div>
         </div>
     </div>
-    <!-- END MOBILE MENU POPUP -->
+</div>
+<!-- END MOBILE MENU POPUP -->
 
     <!-- MOBILE USER PROFILE MENU POPUP -->
     <div class="mob-me-all dashbord_menu">
         <div class="mob-me-clo"><img src="images/icon/close.svg" alt=""></div>
         <div class="mv-bus">
-            <div class="head-pro">
-                <img src="images/20250409_201357_0000.png" alt="" loading="lazy">
-                <b>Aahakalyanam</b><br>
-                <h4>Support</h4>
-            </div>
+                <div class="head-pro">
+                    <img src="images/20250409_201357_0000.png" alt="" loading="lazy">
+                    <b>Aahakalyanam</b><br>
+                    <h4>Support</h4>
+                </div>
             <ul>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="sign-up.html">Sign-up</a></li>
-                <li><a href="plans.html">Pricing plans</a></li>
-                <li><a href="all-profiles.html">Browse profiles</a></li>
+                <li class='dashboard-mob'><a href="user-dashboard.html">Dashboard</a></li>
+                <li class='user-profile-mob'><a href="user-profile.html">My profiles</a></li>
+                <li class="register-link"><a href="sign-up.html">Register</a></li>
+                <li class='mob-signin'><a href="login.html">Login</a></li>
+                <li><a href="plans.html">View plans</a></li>
+                
             </ul>
+            <ul><li class="logoutBtnMob"><a href="#" id="logoutBtnMob">Logout</a></li></ul>
         </div>
     </div>
     <!-- END USER PROFILE MENU POPUP -->
@@ -403,11 +402,11 @@
                                             <div class="row">
                                                 <div class="col-md-6 form-group">
                                                     <label class="lb">No of siblings/உடன்பிறப்புகளின் எண்ணிக்கை</label>
-                                                    <input type="number"  name="no_of_siblings" class="form-control" >
+                                                    <input type="number"  name="no_of_siblings" class="form-control"  readonly>
                                                 </div>
                                                 <div class="col-md-6 form-group">
                                                     <label class="lb">siblings Maritial Status/உடன்பிறப்புகளின் திருமண நிலை</label>
-                                                    <input type="text" class="form-control" name="siblings_marital_status" data-placeholder="Elder Sister Married">
+                                                    <input type="text" class="form-control" name="siblings_marital_status" data-placeholder="Elder Sister Married" readonly>
                                                 </div>
                                                 </div>
                                             <div class="row">
@@ -522,7 +521,10 @@
                                                 <div class="col-md-4 form-group">
                                                     <label class="lb">Caste/சாதி</label>
                                                     <select class="form-select chosen-select"  name="caste" data-placeholder="Select relegion" disabled>
-                                                        <option>Choose one</option><option>வன்னியர் </option>
+                                                        <option>Choose one</option>
+                                                        <option>குறும்பர் (Kurumbar)</option>
+                                                        <option>குறும்ப கவுண்டர்</option>
+                                                        <option>வன்னியர் </option>
                                                         <option>நாயுடு </option>
                                                         <option>யாதவர்  </option>
                                                         <option>முதலியார்  </option>
@@ -951,6 +953,8 @@
                                                             <select class="form-select chosen-select" name="partner_caste" data-placeholder="Select relegion" disabled>
                                                                 <option>Choose one</option>
 
+                                                                <option>குறும்பர் (Kurumbar)</option>
+                                                                <option>குறும்ப கவுண்டர்</option>
                                                                 <option>நாயுடு </option>
                                                         <option>யாதவர்  </option>
                                                         <option>முதலியார்  </option>
@@ -1509,37 +1513,6 @@ fetch("http://159.89.174.77:5000/api/change-role", {
 
 <script>
 
-
-document.getElementById("logoutBtn").addEventListener("click", async function (e) {
-e.preventDefault(); // Prevent default link behavior
-const token = localStorage.getItem("access_token");
-
-fetch("http://159.89.174.77:5000/api/logout", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                }
-            }).then(response => {
-                    if (response.status === 200) {
-                        console.log("The decoded token!!!");
-                        localStorage.removeItem("access_token");
-                        alert("Logged out Successfully");
-                        window.location.href = "index.html"; // Redirect to homepage or login
-                    } else {
-                        localStorage.removeItem("access_token");
-                        location.reload();
-                        alert("Session expired, please login again.");
-                    }
-                }).catch(error => {
-                    console.error("Logout error:", error);
-                    alert("Something went wrong. Please try again later.");
-                });
-});
-
-
-
-
 async function generatePDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
@@ -1620,7 +1593,12 @@ const box2 = horoscopeData['box2'];
 console.log(horoscopeData); // Log the arrays
 
 console.log(typeof horoscopeData);
-const horoscopeData2 = JSON.parse(horoscopeData);
+
+if (typeof horoscopeData === "string") {
+    horoscopeData2 = JSON.parse(horoscopeData);
+} else {
+    horoscopeData2 = horoscopeData;
+}
 
 sessionStorage.setItem("horoscopeData", JSON.stringify(horoscopeData2)); // Store in sessionStorage
 console.log(horoscopeData2); // Log the arrays
@@ -1668,6 +1646,7 @@ if (textarea) {
         document.querySelector("[name='padam']").value = data.data["padam"] || "";
         document.querySelector("[name='laknam']").value = data.data["laknam"] || "";
         document.querySelector("[name='job']").value = data.data["job"] || "";
+        document.querySelector("[name='diet']").value = data.data["diet"] || "Choose one";
     document.querySelector("[name='place_of_job']").value = data.data["place_of_job"] || "";
     document.querySelector("[name='income_per_month']").value = data.data["income_per_month"] || "";
     document.querySelector("[name='qualification']").value = data.data["qualification"] || "";
@@ -1980,82 +1959,139 @@ pdf.save(`profile_summary.pdf`);
 // }
 
 
+async function handleLogout(e) {
+        e.preventDefault();
+        const buttonId = e.target.id;
+        const token = localStorage.getItem("access_token");
 
-document.addEventListener("DOMContentLoaded", function () {
+        try {
+            const response = await fetch("http://159.89.174.77:5000/api/logout", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
 
-const role = getUserRoleFromToken();
+            if (response.status === 200) {
+                localStorage.removeItem("access_token");
 
-console.log("Detected User Role:", role); // Debug
+                if (buttonId === "logoutBtn") {
+                    alert("User logged out successfully");
+                    window.location.href = "index.html";
+                } else if (buttonId === "adminLogoutBtn") {
+                    alert("Admin logged out successfully");
+                    window.location.href = "admin-login.html";
+                }
+            } else {
+                localStorage.removeItem("access_token");
+                alert("Session expired, please login again.");
+                location.reload();
+            }
+        } catch (error) {
+            console.error("Logout error:", error);
+            alert("Something went wrong. Please try again later.");
+        }
+    }
 
-// Default: hide all controlled elements
-document.querySelector(".plans-link")?.classList.add("hide");
-document.querySelector(".register-link")?.classList.add("hide");
-document.querySelector(".dashboard-section")?.classList.add("hide");
-document.querySelector(".my-profile")?.classList.add("hide");
-document.querySelector(".registering-link")?.classList.add("hide");
-
-
-
-
-document.querySelector(".signin-only")?.classList.add("hide");
-document.querySelector(".logout-only")?.classList.add("hide");
-document.querySelector(".user-profile.html")?.classList.add("hide");
-
-
-
-
-// Show based on role   
-switch (role) {
-case "admin":
-document.querySelector(".plans-link")?.classList.remove("hide");
-document.querySelector(".register-link")?.classList.add("hide");
-document.querySelector(".dashboard-section")?.classList.remove("hide");
-document.querySelector(".logout-only")?.classList.remove("hide");
-break;
-case "moderator":
-document.querySelector(".my-profile")?.classList.remove ("hide");
-document.querySelector(".logout-only")?.classList.remove("hide");
-
-
-break;
-case "user":
-document.querySelector(".plans-link")?.classList.remove("hide");
-document.querySelector(".logout-only")?.classList.remove("hide");
-document.querySelector(".user-profile.html")?.classList.remove("hide");
-document.querySelector(".registering-link")?.classList.remove("hide");
-document.querySelector(".my-profile")?.classList.remove ("hide");
+    window.onload = function () {
+        document.getElementById("logoutBtn").addEventListener("click", handleLogout);
+        document.getElementById("logoutBtnMob").addEventListener("click", handleLogout);
+    };
 
 
+    // role based menu Start
+        document.addEventListener("DOMContentLoaded", function () {
 
-break;
-case "viewer": // not signed in
-document.querySelector(".signin-only")?.classList.remove("hide");
+            const role = getUserRoleFromToken();
 
-default:
-document.querySelector(".signin-only")?.classList.remove("hide");
-break;
-}
+            console.log("Detected User Role:", role); // Debug
 
-
-function getUserRoleFromToken() {
-const token = localStorage.getItem("access_token");
-
-if (!token) return "viewer"; // Not signed in
-
-try {
-const payload = JSON.parse(atob(token.split(".")[1]));
-const role = payload.role || "viewer"; // adjust if your payload key is different
-localStorage.setItem("user_role", role); // Store role for later use
-return role;
-} catch (err) {
-console.error("Failed to decode token", err);
-return "viewer";
-}
-}
+            // Default: hide all controlled elements
+            document.querySelector(".plans-link")?.classList.add("hide");
+            document.querySelector(".register-link")?.classList.add("hide");
+            document.querySelector(".dashboard-section")?.classList.add("hide");
+            document.querySelector(".my-profile")?.classList.add("hide");
+            document.querySelector(".registering-link")?.classList.add("hide");
+            //mobile  menu 
+            document.querySelector(".logoutBtnMob")?.classList.add("hide");
+            document.querySelector(".mob-signin")?.classList.add("hide");
+            document.querySelector(".user-profile-mob")?.classList.add("hide");
+            document.querySelector(".mob-signin1")?.classList.add("hide");
+            document.querySelector(".dashboard-mob")?.classList.add("hide");
 
 
-});
 
+
+            document.querySelector(".signin-only")?.classList.add("hide");
+            document.querySelector(".logout-only")?.classList.add("hide");
+            document.querySelector(".user-profile.html")?.classList.add("hide");
+
+
+
+
+            // Show based on role   
+            switch (role) {
+                case "admin":
+                    document.querySelector(".plans-link")?.classList.remove("hide");
+                    document.querySelector(".register-link")?.classList.remove("hide");
+                    document.querySelector(".dashboard-section")?.classList.remove("hide");
+                    document.querySelector(".logout-only")?.classList.remove("hide");
+                    document.querySelector(".logoutBtnMob")?.classList.remove("hide");
+                    document.querySelector(".dashboard-mob")?.classList.remove("hide");
+                    document.querySelector(".user-profile-mob")?.classList.remove("hide");
+                    
+                    break;
+                case "moderator":
+                    document.querySelector(".my-profile")?.classList.remove("hide");
+                    document.querySelector(".logout-only")?.classList.remove("hide");
+                    document.querySelector(".logoutBtnMob")?.classList.remove("hide");
+                    document.querySelector(".user-profile-mob")?.classList.remove("hide");
+
+
+                    break;
+                case "user":
+                    document.querySelector(".plans-link")?.classList.remove("hide");
+                    document.querySelector(".logout-only")?.classList.remove("hide");
+                    document.querySelector(".user-profile-mob")?.classList.remove("hide");
+                    document.querySelector(".user-profile.html")?.classList.remove("hide");
+                    document.querySelector(".my-profile")?.classList.remove("hide");
+                    document.querySelector(".logoutBtnMob")?.classList.remove("hide");
+
+
+
+                    break;
+                case "viewer": // not signed in
+                    document.querySelector(".signin-only")?.classList.remove("hide");
+                    document.querySelector(".plans-link")?.classList.remove("hide");
+                    document.querySelector(".mob-signin")?.classList.remove("hide");
+                    document.querySelector(".mob-signin1")?.classList.remove("hide");
+
+
+                default:
+                    document.querySelector(".signin-only")?.classList.remove("hide");
+                    break;
+            }
+
+
+            function getUserRoleFromToken() {
+                const token = localStorage.getItem("access_token");
+
+                if (!token) return "viewer"; // Not signed in
+
+                try {
+                    const payload = JSON.parse(atob(token.split(".")[1]));
+                    const role = payload.role || "viewer"; // adjust if your payload key is different
+                    localStorage.setItem("user_role", role); // Store role for later use
+                    return role;
+                } catch (err) {
+                    console.error("Failed to decode token", err);
+                    return "viewer";
+                }
+            }
+        });
+
+// role based menu End
 
 
 
