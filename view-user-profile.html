@@ -1577,14 +1577,23 @@ console.log("User ID from localStorage:", id);
             
 // Replace with your actual API endpoint
 fetch(`http://159.89.174.77:5000/api/view-profile/${id}`)
-    .then(response => response.json())  // Convert response to JSON
-    .then(data => {
+    .then(async response => {
+    if (!response.ok) {
+      // Try to extract error message from response
+      const errorData = await response.json().catch(() => null);
+      const errorMessage = errorData?.error || "An unknown error occurred.";
+      throw new Error(errorMessage);
+    }
+    return response.json();
+  }).then(data => {
         console.log("Fetched data:", data); // Debugging line
 
         sessionStorage.setItem("linked_to_user", data.data["linked_to"]); // Store email in sessionStorage
 
         
 let profile = data.data; // Assuming the API returns an array of profiles
+console.log(profile);
+
 let horoscopeJson = data.data['horoscope']; // Assuming the API returns horoscope data as JSON string
 console.log(typeof horoscopeJson); // Should be: string
 const horoscopeData = JSON.parse(horoscopeJson);
@@ -1720,7 +1729,8 @@ document.querySelector("[name='user_email']").value = data.data["mail_id"] || ""
 
     
     })
-    .catch(error => console.error("Error fetching profile data:", error));
+    .catch(error =>{ console.error("Error fetching profile data:", error)
+    alert(error.message.includes("User not found") ? "User not found!" : "Something went wrong.")});
 });
 
 
