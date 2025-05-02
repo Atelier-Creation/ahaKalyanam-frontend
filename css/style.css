@@ -3126,7 +3126,7 @@ table td{}
 
 .short-rhs {
     float: left;
-    width: calc(100% - 250px);
+    width: calc(100% - 0px);
 }
 
 .short-rhs ul {

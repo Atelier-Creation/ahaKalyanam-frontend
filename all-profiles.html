@@ -704,11 +704,11 @@
                                                 <span class="d-inline-block px-3 py-1">Cast: Naicker</span>
                                                 <span class="d-inline-block px-3 py-1">Sub cast: no bar</span>
                                             </div>
-                                            <div class="links">
-                                                <!-- <span class="cta-chat">Chat now</span> -->
+                                            <!-- <div class="links">
+                                                <span class="cta-chat">Chat now</span>
                                                 <a href="#!" class="cta cta-sendint" data-bs-toggle="modal" data-bs-target="#sendInter">Add interest</a>
                                                 <a href="profile-details.html">More detaiils</a>
-                                            </div>
+                                            </div> -->
                                         </div>
                                         <!--END PROFILE NAME-->
                                         <!--SAVE-->
@@ -1283,8 +1283,8 @@ function populateProfiles(profiles) {
                         <h4><a href="profile-details.html?userId=${profile.id}">${profile.name}</a></h4>
                         <div class="pro-bio">
                             <span class="fs-4 fw-semibold text-light p-2">Regis No : #${profile.id}</span>
-                            <span class="d-inline-block px-3 p-2">Caste: ${profile.caste}</span>
-                            <span class="d-inline-block px-3 p-2">Sub cast : ${profile.sub_caste || "no bar"}</span>
+                            <span class="d-inline-block pl-3 p-2">Caste: ${profile.caste}</span>
+                            <span class="d-inline-block pl-3 p-2" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px; display: inline-block;">Sub cast : ${profile.sub_caste || "no bar"}</span>
                         </div>
                         <div class="links">
                             <a href="#!" class="cta cta-sendint" data-user-id="${profile.linked_to}" data-bs-toggle="modal" data-bs-target="#sendInter">Send Interest</a>
