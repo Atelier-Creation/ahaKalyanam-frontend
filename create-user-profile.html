@@ -1985,8 +1985,20 @@
                 }
             }
         });
-
 // role based menu End
+
+document.getElementById("myForm").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        e.preventDefault(); 
+
+        // Ask for confirmation
+        const isConfirmed = confirm("Are you sure you want to submit this form?");
+        if (isConfirmed) {
+            document.getElementById("submitBtn").click(); // Trigger submit manually
+        }
+    }
+});
+
     </script>
 
 
