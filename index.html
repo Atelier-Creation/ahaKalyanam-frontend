@@ -1850,6 +1850,7 @@ window.location.href = `login.html?redirect=${currentUrl}`;
                 profileItem.style.minWidth = "200px";
                 profileItem.style.marginRight = "10px";
                 profileItem.innerHTML = `
+                <a href="profile-details.html?userId=${profile.id}">
             <div class="wow fadeInUp hacc" data-wow-delay="0.1s">
                 <div class="con">
                     <div class="imagecon" style="">
@@ -1857,9 +1858,10 @@ window.location.href = `login.html?redirect=${currentUrl}`;
                     <h4>${profile.name}</h4>
                     <p>Age: ${profile.age}</p>
                     <p>${profile.job || 'Not specified'}</p>
-                    <a href="profile-details.html?userId=${profile.id}">View more</a>
+                   
                 </div>
             </div>
+             </a>
         `;
                 return profileItem;
             }

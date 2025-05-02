@@ -527,6 +527,7 @@ async function startPayment() {
 
   if (!token) {
     alert("You must be logged in to make a payment.");
+    redirectToLogin()
     return;
   }
 
@@ -566,9 +567,9 @@ async function startPayment() {
         const upgradeResult = await upgradeRes.json();
 
         if (upgradeRes.ok) {
-          alert("Payment successful & role updated!");
+          alert("Payment successful & role updated! you can now view all profiles");
           // Optionally reload or redirect
-          // window.location.href = "dashboard.html";
+           window.location.href = "all-profiles.html";
         } else {
           alert(upgradeResult.message || "Payment succeeded, but failed to update role.");
         }

@@ -1575,7 +1575,9 @@ document.getElementById("submitBtn").addEventListener("click", function (e) {
             formData.append(key, profileData[key]);
         }
     }
-    const horoscope = JSON.stringify(collectDataAndSubmitForm());
+    const horoscope = JSON.stringify(JSON.stringify(collectDataAndSubmitForm()));
+    console.log(horoscope);
+    
     formData.append("horoscope", horoscope);
 
     // Append image files if selected, but only once

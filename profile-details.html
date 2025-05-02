@@ -397,7 +397,8 @@
                             <!-- PROFILE ABOUT -->
                             <div class="pr-bio-c pr-bio-info role-hide-user">
                                 <h3>Personal information</h3>
-                                <ul>
+                                <div>
+                               <div>
                                     <ul>
                                         <li><b>Name:</b> Angelina Jolie</li>
                                         <li><b>Father's Name:</b> John Smith</li>
@@ -426,7 +427,8 @@
                                         <li><b>Diet:</b> Non-Vegetarian</li>
                                         <li><b>Contact Person:</b> Mr. K. Anand</li>
                                     </ul>
-                                </ul>
+                               </div>
+
                                 <!-- <h3>Life Partner Expectations</h3>
                                     <ul>
                                         <li><b>Qualification:</b> BE / MBA / MCA / ME</li>
@@ -486,9 +488,10 @@
                                     </div>
                                 </div> -->
 
-
+</div>
 
                             <div class="wrapper1   pr-bio-c pr-bio-info role-hide-user1">
+                                <!-- <h3 style="text-align: center;margin-bottom: 19px;-webkit-text-stroke: .7px #66451c;font-size: 36px;letter-spacing: 2px;font-weight: 900;">ஜாதகம்</h3> -->
                                 <div class="main-container" id="RASI">
                                     <div class="main-box">
                                         <div class="grid">
@@ -560,7 +563,6 @@
                             <!-- END PROFILE ABOUT -->
 
 
-                        </div>
 
                         <!-- PROFILE lHS -->
                         <div class="rhs">
@@ -771,7 +773,6 @@ window.location.href = `login.html?redirect=${currentUrl}`;
                 })
                 .then(data => {
                     console.log("Fetched Profile Data"); // Log response JSON
-
                     updateProfilePage(data);
                 })
                 .catch(error => { console.error('Error fetching profile:', error) });
@@ -784,13 +785,7 @@ window.location.href = `login.html?redirect=${currentUrl}`;
             let horoscopeJson = data.data['horoscope']; // Assuming the API returns horoscope data as JSON string
             const horoscopeData = JSON.parse(horoscopeJson);
 
-
-
             const horoscopeData2 = JSON.parse(horoscopeData);
-
-
-
-
 
             for (let i = 1; i <= 12; i++) {
                 const field = `field_${i}`;
@@ -867,8 +862,9 @@ if (images.length > 1) {
         <li><div><img src="images/icon/pro-city.png" alt=""><span>Job: <strong>${profile.job?profile.job: "Not Specified"}</strong></span></div></li>
     `;
 
-            const personalInfoContainer = document.querySelector(".pr-bio-info ul");
+            const personalInfoContainer = document.querySelector(".pr-bio-info div div");
             const contactInfoContainer = document.querySelector(".pr-bio-conta ul");
+            const prBioInfo = document.querySelector(".pr-bio-info div");
             // Clear any existing content
             personalInfoContainer.innerHTML = '';
             if (role === "admin" || role === "moderator") {
@@ -885,7 +881,6 @@ if (images.length > 1) {
             <li><b>Religion:</b> ${profile.religion || 'N/A'}</li>
             <li><b>Profession:</b> ${profile.job || 'N/A'}</li>
             <li><b>Company:</b> ${profile.place_of_job || 'N/A'}</li>
-            <li><b>Position:</b> ${profile.position || 'N/A'}</li>
             <li><b>Salary:</b> ${profile.income_per_month ? '₹ ' + parseInt(profile.income_per_month) + ' p/m' : 'N/A'}</li>
             <li><b>Gothram:</b> ${profile.gowthram || 'N/A'}</li>
             <li><b>Star:</b> ${profile.star || 'N/A'}</li>
@@ -901,9 +896,24 @@ if (images.length > 1) {
             <li><b>Diet:</b> ${profile.diet || 'N/A'}</li>
             <li><b>Other Details:</b> ${profile.other_details || 'N/A'}</li>
             <li><b>Own House:</b> ${profile.own_house || 'N/A'}</li>
-            <li><b>Other Assets:</b> ${profile.other_assets || 'N/A'}</li>
+            <li style="margin-bottom: 15px;"><b>Other Assets:</b> ${profile.other_assets || 'N/A'}</li>
         </ul>`;
 
+        const partnerdiv = document.createElement("div");
+prBioInfo.appendChild(partnerdiv);
+
+const heading = document.createElement("h3");
+heading.innerHTML = "<b>Life Partner Expectations:</b>";
+heading.style.margin = "unset"
+partnerdiv.appendChild(heading);
+
+const partnerList = document.createElement("ul");
+partnerList.innerHTML = `
+ <li><b>Qualification:</b> ${profile.partner_qualification || 'N/A'}</li>
+ <li><b>Income/month:</b> ${profile.partner_income ? '₹ ' + parseInt(profile.partner_income)  : 'N/A'}</li>
+ <li style="margin-bottom: 15px;"><b>Marital Status:</b> ${profile.partner_marital_status || 'N/A'}</li>
+`;
+partnerdiv.appendChild(partnerList);
     contactInfoContainer.innerHTML = `
         <li><span><i class="fa fa-mobile" aria-hidden="true"></i><b>Phone:</b> ${profile.contact_number || 'N/A'}</span></li>
         <li><span><i class="fa fa-envelope-o" aria-hidden="true"></i><b>Contact person:</b> ${profile.contact_person || 'N/A'}</span></li>
@@ -931,6 +941,10 @@ if (images.length > 1) {
             <a href="plans.html" class="btn btn-primary">Purchase  Plan</a>
         </div>`;
 }
+
+
+
+
         }
 
         function fetchRelatedProfiles() {
@@ -987,10 +1001,12 @@ async function handleLogout(e) {
 
                 if (buttonId === "logoutBtn") {
                     alert("User logged out successfully");
-                    window.location.href = "index.html";
+                    location.reload();
+
                 } else if (buttonId === "adminLogoutBtn") {
                     alert("Admin logged out successfully");
-                    window.location.href = "admin-login.html";
+                    location.reload();
+
                 }
             } else {
                 localStorage.removeItem("access_token");
