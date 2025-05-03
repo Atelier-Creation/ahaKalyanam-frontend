@@ -753,18 +753,6 @@
                             <div class="short-rhs">
                                 <ul>
                                     <li>
-                                        Sort by:
-                                    </li>
-                                    <li>
-                                        <div class="form-group">
-                                            <select class="chosen-select">
-                                                <option value="">Most relative</option>
-                                                <option value="Men">Date listed: Newest</option>
-                                                <option value="Men">Date listed: Oldest</option>
-                                            </select>
-                                        </div>
-                                    </li>
-                                    <li>
                                         <div class="sort-grid sort-grid-1">
                                             <i class="fa fa-th-large" aria-hidden="true"></i>
                                         </div>
@@ -776,7 +764,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> 
                         <div class="all-list-sh">
                             <ul>
                                 <li>
@@ -1393,9 +1381,9 @@ async function handleLogout(e) {
                         <div class="pro-detail">
                             <h4><a href="profile-details.html?userId=${profile.id}">${profile.name}</a></h4>
                             <div class="pro-bio">
-                                <span>City: ${profile.city}</span>
-                                <span>Age: ${profile.age}</span>
-                                <span>Job: ${profile.job || "Not available"}</span>
+                                <span class="fs-4 fw-semibold text-light p-2">Regis No : #${profile.id}</span>
+                            <span class="d-inline-block pl-3 p-2">Caste: ${profile.caste}</span>
+                            <span class="d-inline-block pl-3 p-2" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px; display: inline-block;">Sub cast : ${profile.sub_caste || "no bar"}</span>
                             </div>
                             <a href="profile-details.html?userId=${profile.id}">More details</a>
                         </div>

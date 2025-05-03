@@ -677,7 +677,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="all-list-sh">
+                        <div class="all-list-sh" id="profilestop">
                             <ul>
                                 <li>
                                     <div class="all-pro-box user-avil-onli" data-useravil="avilyes"
@@ -1251,6 +1251,13 @@ function loadNextBatch() {
     currentIndex += batchSize;
 
     toggleButtons();
+
+    const target = document.getElementById("profilestop");
+    if (target) {
+       const yOffset = -200; 
+const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+window.scrollTo({ top: y, behavior: "smooth" });
+    }
 }
 
 // Show previous batch
