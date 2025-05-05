@@ -1595,7 +1595,27 @@
 
         // register user
         document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("submitBtn").addEventListener("click", function (e) {
+            const form = document.getElementById("myForm");
+            const submitBtn = document.getElementById("submitBtn");
+            
+            // form enter key confermation 
+            form.addEventListener("keydown", function (e) {
+                const tag = e.target.tagName;
+                const isTextarea = tag === "TEXTAREA";
+                const isEnter = e.key === "Enter";
+                const isShift = e.shiftKey;
+
+                if (isEnter && !isTextarea && !isShift) {
+                    e.preventDefault();
+                    const confirmed = confirm("Are you sure you want to submit this form?");
+                    if (confirmed) {
+                        submitBtn.click();
+                    }
+                }
+            });
+
+            
+            submitBtn.addEventListener("click", function (e) {
                 e.preventDefault();
 
                 const form = document.getElementById("myForm");
@@ -1616,8 +1636,6 @@
                     alert("Missing required session or login data.");
                     return;
                 }
-
-                const submitBtn = document.getElementById("submitBtn");
                 submitBtn.disabled = true;
                 submitBtn.textContent = "Submitting...";
 
@@ -1987,17 +2005,6 @@
         });
 // role based menu End
 
-
-// form enter key confermation 
-document.getElementById("myForm").addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-        e.preventDefault(); 
-        const isConfirmed = confirm("Are you sure you want to submit this form?");
-        if (isConfirmed) {
-            document.getElementById("submitBtn").click();
-        }
-    }
-});
 
     </script>
 

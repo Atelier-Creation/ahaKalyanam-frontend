@@ -1573,7 +1573,8 @@
             // Handle date of birth and format it to "yyyy-MM-dd"
             const dateOfBirth = new Date(data.data["date_of_birth"]);
             const formattedDate = dateOfBirth instanceof Date && !isNaN(dateOfBirth) ? dateOfBirth.toISOString().split('T')[0] : "";
-
+            console.log(data.data["age"]);
+            
             updateField("name", data.data["name"]);
             updateField("age", data.data["age"]);
             updateField("gender", data.data["gender"]);
@@ -1612,7 +1613,10 @@
         const element = document.querySelector(selector);
         return element ? element.value : defaultValue;
     };
-
+    // const ageInput = getValue("[name='age']").trim();
+    // console.log(ageInput);    
+    // const age = ageInput === "" ? null : ageInput;
+    // console.log(age);
     return {
         caste: getValue("[name='caste']", "Choose one"),
         sub_caste: getValue("[name='sub_caste']", "Choose one"),
@@ -1643,7 +1647,7 @@
         partner_sub_caste: getValue("[name='partner_sub_caste']", "Choose one"),
 
         name: getValue("[name='name']"),
-        age: getValue("[name='age']"),
+        age : getValue("[name='age']"),
         gender: getValue("[name='gender']"),
         city: getValue("[name='city']"),
         date_of_birth: getValue("[name='date_of_birth']"),
@@ -1653,7 +1657,7 @@
         mother_name: getValue("[name='mother_name']"),
         father_job: getValue("[name='father_job']"),
         mother_job: getValue("[name='mother_job']"),
-        no_of_siblings: parseInt(getValue("[name='no_of_siblings']")) || 0,
+        no_of_siblings: parseInt(getValue("[name='no_of_siblings']") || 0),
         siblings_marital_status: getValue("[name='siblings_marital_status']", "Any"),
         marital_status: getValue("[name='marital_status']"),
         mother_tongue: getValue("[name='mother_tongue']"),
@@ -1667,12 +1671,15 @@
         image_1: getValue("[name='image_1']"),
         image_2: getValue("[name='image_2']")
     };
+    
 }
 
 document.getElementById("submitBtn").addEventListener("click", function (e) {
     e.preventDefault(); // Prevents default form behavior
 
     const profileData = editFunction(); // Get profile data
+    console.log(profileData);
+    
     let id = sessionStorage.getItem("edit_user_id") || localStorage.getItem("viewProfileUserId");
     const token = localStorage.getItem("access_token");
 
