@@ -1791,7 +1791,7 @@ window.location.href = `login.html?redirect=${currentUrl}`;
             fetch("http://159.89.174.77:5000/api/allprofiles") // Replace with actual API URL
                 .then(response => response.json())
                 .then(data => {
-                    console.log("Fetched Profiles:", data); // Debugging
+                    // console.log("Fetched Profiles:", data); // Debugging
                     const profiles = getRandomProfiles(data.message, 8);
 
                     const profiles1 = data.message; // Assuming profiles are in `message`

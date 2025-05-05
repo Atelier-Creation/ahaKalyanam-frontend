@@ -1615,16 +1615,15 @@ i.fa-instagram:hover {
 
 @keyframes backgroundChange {
     0%   { background-image: url("../images/ahh kalayam_1.webp"); }
-    25%  { background-image: url("../images/bannerImage3.jpg"); }
-    50%  { background-image: url("../images/bannerImage4.jpg"); }
+    25%  { background-image: url("../images/Desktop_Image/Desktop_Image/ahh kalayam_2.webp"); }
+    50%  { background-image: url("../images/Desktop_Image/Desktop_Image/ahh kalayam_3.webp"); }
     75%  { background-image: url("../images/Desktop_Image/Desktop_Image/ahh kalayam_2.webp"); }
-    95% { background-image: url("../images/Desktop_Image/Desktop_Image/ahh kalayam_3.webp"); }
+    95% { background-image: url("../images/ahh kalayam_1.webp"); }
 }
 
 
 
 .ban-tit {
-
     text-align: center;
     background-size: cover;
     background-position: 0% 25%;
@@ -1632,10 +1631,15 @@ i.fa-instagram:hover {
     width: 100%;
     height: 30rem;
     position: relative;
-    /* background: #D9D9D9; */
     border-radius: 24px;
-
     animation: backgroundChange 15s infinite;
+}
+
+@media (max-width: 400px) {
+    .ban-tit {
+        background-position: center !important;
+        border-radius: 12px;
+    }
 }
 
 .ban-tit h1 b {
