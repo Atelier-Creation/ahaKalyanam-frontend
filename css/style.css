@@ -137,6 +137,17 @@ body {
         display: block;
         height: inherit;
     }
+    .ban-tit {
+        text-align: center;
+        height: 10rem !important;
+        margin-bottom: 19px;
+        background-size: cover;
+        border-radius: 10px !important;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        animation: backgroundChange 8s infinite;
+    }
 
 }
 
@@ -1686,7 +1697,10 @@ i.fa-instagram:hover {
 @media (max-width: 400px) {
     .ban-tit {
         background-position: center !important;
-        border-radius: 12px;
+        border-radius: 5px;
+    }
+    .home-acces-main2 {
+        margin-top: unset !important;
     }
 }
 
@@ -10494,7 +10508,7 @@ select {
 
     .hom-head {
         height: initial;
-        background: url(../images/ban-bg.jpg) 0px center / cover no-repeat;
+        /* background: url(../images/ban-bg.jpg) 0px center / cover no-repeat; */
         padding: 80px 0;
     }
 
@@ -10513,7 +10527,6 @@ select {
         top: 0;
         right: 0;
         bottom: 0;
-        background-image: linear-gradient(358deg, black, #0000005e);
     }
 
     .home-acces-main.inn::before {
@@ -11057,14 +11070,16 @@ select {
 
 
     .ban-tit {
-        text-align: center;
-        height: 9rem;
+        height: 24rem;
         margin-bottom: 25px;
         background-size: cover;
-        background-position: 0% 25%;
+        background-position: center;
         background-repeat: no-repeat;
         width: 100%;
         animation: backgroundChange 8s infinite;
+    }
+    .home-acces-main2 {
+        margin-top: unset !important;
     }
 
     .search {
