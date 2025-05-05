@@ -477,7 +477,7 @@
     </section>
     <!-- END -->
     <!-- Optional JavaScript -->
-
+    <script src="js/config.js"></script>
 
     <script>
         function checkEnterKey(event) {
@@ -504,7 +504,7 @@ async function handleLogout(e) {
         const token = localStorage.getItem("access_token");
 
         try {
-            const response = await fetch("http://159.89.174.77:5000/api/logout", {
+            const response = await fetch(`http://159.89.174.77:5000/api/logout`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

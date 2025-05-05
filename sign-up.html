@@ -511,7 +511,7 @@
     <!-- END -->
     <!-- Optional JavaScript -->
 
-
+    <script src="js/config.js"></script>
 
     <script>
 document.getElementById('togglePwd').addEventListener('click', function () {
@@ -534,7 +534,7 @@ async function handleLogout(e) {
         const token = localStorage.getItem("access_token");
 
         try {
-            const response = await fetch("http://159.89.174.77:5000/api/logout", {
+            const response = await fetch(`${API_BASE_URL}/api/logout`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -705,7 +705,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
     console.log("User Data to be submitted:", userData); // Debugging
 
     try {
-        const response = await fetch("http://159.89.174.77:5000/api/createUser", {
+        const response = await fetch(`${API_BASE_URL}/api/createUser`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

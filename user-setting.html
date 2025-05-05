@@ -483,7 +483,7 @@
                                 <h2 class="db-tit">Profile settings</h2>
                                 <div class="col7 fol-set-rhs">
                                     <!--START-->
-                                    <div class="ms-write-post fol-sett-sec sett-rhs-pro" style="">
+                                    <div class="ms-write-post fol-sett-sec sett-rhs-pro">
                                         <div class="foll-set-tit fol-pro-abo-ico">
                                             <h4>Profile</h4>
                                         </div>
@@ -545,7 +545,7 @@
                                     </div>
                                     <!--END-->	
                                     <!--START-->
-                                    <div class="ms-write-post fol-sett-sec sett-rhs-acc" style="">
+                                    <div class="ms-write-post fol-sett-sec sett-rhs-acc" >
                                         <div class="foll-set-tit fol-pro-abo-ico">
                                             <h4>Account</h4><a href="#!" class="sett-edit-btn sett-acc-edit-eve"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
                                         </div>
@@ -610,7 +610,7 @@
                                     </div>
                                     <!--END-->	
                                     <!--START-->
-                                    <div class="ms-write-post fol-sett-sec sett-rhs-not" style="">
+                                    <div class="ms-write-post fol-sett-sec sett-rhs-not">
                                         <div class="foll-set-tit fol-pro-abo-ico">
                                             <h4>Notifications</h4>
                                         </div>
@@ -746,6 +746,7 @@
     </section>
     <!-- END -->
     <!-- Optional JavaScript -->
+    <script src="js/config.js"></script>
      <script>
         async function handleLogout(e) {
         e.preventDefault();
@@ -753,7 +754,7 @@
         const token = localStorage.getItem("access_token");
 
         try {
-            const response = await fetch("http://159.89.174.77:5000/api/logout", {
+            const response = await fetch(`${API_BASE_URL}/api/logout`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

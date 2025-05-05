@@ -603,6 +603,7 @@
     <!-- END -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/config.js"></script>
      <script>
         async function handleLogout(e) {
         e.preventDefault();
@@ -610,7 +611,7 @@
         const token = localStorage.getItem("access_token");
 
         try {
-            const response = await fetch("http://159.89.174.77:5000/api/logout", {
+            const response = await fetch(`${API_BASE_URL}/api/logout`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -1462,7 +1462,7 @@
 
 
 
-
+    <script src="js/config.js"></script>
 
     <script>    
 
@@ -1496,7 +1496,7 @@
     };
 
     // Fetch profile data from the API
-    fetch(`http://159.89.174.77:5000/api/view-profile/${id}`)
+    fetch(`${API_BASE_URL}/api/view-profile/${id}`)
         .then(response => response.json())
         .then(data => {
             console.log("Fetched data:", data.data);
@@ -1582,8 +1582,8 @@
             updateField("partner_sub_caste", data.data["partner_sub_caste"], "Choose one");
 
             // Handle profile photos
-            document.getElementById('profile-photo1').src = `http://159.89.174.77:5000/${correctedPath1}`;
-            document.getElementById('profile-photo2').src = `http://159.89.174.77:5000/${correctedPath2}`;
+            document.getElementById('profile-photo1').src = `${API_BASE_URL}/${correctedPath1}`;
+            document.getElementById('profile-photo2').src = `${API_BASE_URL}/${correctedPath2}`;
 
             // Save session data for user profile
             sessionStorage.setItem("profile_user_id", data.data["role"]);
@@ -1755,7 +1755,7 @@ document.getElementById("submitBtn").addEventListener("click", function (e) {
     submitButton.disabled = true;
 
     // Update profile via API
-    fetch(`http://159.89.174.77:5000/api/profile/${id}`, {
+    fetch(`${API_BASE_URL}/api/profile/${id}`, {
         method: "PUT",
         headers: {
             "Authorization": `Bearer ${token}`
@@ -1827,7 +1827,7 @@ function collectDataAndSubmitForm() {
         const token = localStorage.getItem("access_token");
 
         try {
-            const response = await fetch("http://159.89.174.77:5000/api/logout", {
+            const response = await fetch(`${API_BASE_URL}/api/logout`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

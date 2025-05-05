@@ -1389,7 +1389,7 @@
     <!-- END -->
     <!-- Optional JavaScript -->
 
-
+    <script src="js/config.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
@@ -1449,7 +1449,7 @@ function resetPassword() {
     return;
   }
 
-  fetch("http://159.89.174.77:5000/api/reset-password", {
+  fetch(`${API_BASE_URL}/api/reset-password`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -1496,7 +1496,7 @@ const confirmed = confirm(`Are you sure you want to convert this user to "${newR
 if (!confirmed) return;
 
 // API call to update role
-fetch("http://159.89.174.77:5000/api/change-role", {
+fetch(`${API_BASE_URL}/api/change-role`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -1595,7 +1595,7 @@ function getQueryParam(param) {
 console.log("User ID from localStorage:", id);
             
 // Replace with your actual API endpoint
-fetch(`http://159.89.174.77:5000/api/view-profile/${id}`)
+fetch(`${API_BASE_URL}/api/view-profile/${id}`)
     .then(async response => {
     if (!response.ok) {
       // Try to extract error message from response
@@ -1694,8 +1694,8 @@ if (textarea) {
     document.querySelector("[name='partner_caste']").value = data.data["partner_caste"] || "Choose one";
     document.querySelector("[name='partner_sub_caste']").value = data.data["partner_sub_caste"] || "Choose one";
 
-    document.getElementById('profile-photo1').src = `http://159.89.174.77:5000/${correctedPath1}`;
-    document.getElementById('profile-photo2').src = `http://159.89.174.77:5000/${correctedPath2}`;
+    document.getElementById('profile-photo1').src = `${API_BASE_URL}/${correctedPath1}`;
+    document.getElementById('profile-photo2').src = `${API_BASE_URL}/${correctedPath2}`;
 
 
     sessionStorage.setItem("profile_user_id", data.data["role"]);
@@ -1997,7 +1997,7 @@ async function handleLogout(e) {
         const token = localStorage.getItem("access_token");
 
         try {
-            const response = await fetch("http://159.89.174.77:5000/api/logout", {
+            const response = await fetch(`${API_BASE_URL}/api/logout`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

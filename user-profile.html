@@ -446,7 +446,7 @@
         </section>
         <!-- END -->
         <!-- Optional JavaScript -->
-
+        <script src="js/config.js"></script>
         <script>
 
 async function handleLogout(e) {
@@ -455,7 +455,7 @@ async function handleLogout(e) {
         const token = localStorage.getItem("access_token");
 
         try {
-            const response = await fetch("http://159.89.174.77:5000/api/logout", {
+            const response = await fetch(`${API_BASE_URL}/api/logout`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -591,7 +591,7 @@ async function handleLogout(e) {
     console.log("User ID: " + id); // Debugging
 
 
-    fetch(`http://159.89.174.77:5000/api/profile/${id}`, {
+    fetch(`${API_BASE_URL}/api/profile/${id}`, {
     method: "GET",
     headers: {
         "Authorization": `Bearer ${token}`,
@@ -605,7 +605,7 @@ async function handleLogout(e) {
         // Assuming your API returns something like: { name: ..., profile_image: "uploads/12.jpg" }
 
         const imgPath = data.data['image_1'] || "images/default.jpg"; // fallback if not found
-        document.getElementById("profileImage").src = `http://159.89.174.77:5000/${imgPath}`;
+        document.getElementById("profileImage").src = `${API_BASE_URL}/${imgPath}`;
     })
     .catch(error => {
         console.error("Error loading profile:", error);

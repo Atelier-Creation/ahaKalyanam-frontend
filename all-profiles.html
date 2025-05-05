@@ -972,7 +972,7 @@
 </section>
 <!-- END -->
 
-
+<script src="js/config.js"></script>
 <script>
 
     
@@ -980,7 +980,7 @@ document.getElementById("logoutBtn").addEventListener("click", async function (e
     e.preventDefault(); // Prevent default link behavior
     const token = localStorage.getItem("access_token");
 
-    fetch("http://159.89.174.77:5000/api/logout", {
+    fetch(`${API_BASE_URL}/api/logout`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1042,7 +1042,7 @@ document.getElementById("logoutBtn").addEventListener("click", async function (e
                 console.log("Query Params:", selectedValues);
     
                 let queryParams = new URLSearchParams(selectedValues).toString();
-                let apiUrl = `http://159.89.174.77:5000/api/quick_search?${queryParams}`;
+                let apiUrl = `${API_BASE_URL}/api/quick_search?${queryParams}`;
     
                 try {       
                     let response = await fetch(apiUrl, { method: "GET" });
@@ -1083,7 +1083,7 @@ async function handleLogout(e) {
         const token = localStorage.getItem("access_token");
 
         try {
-            const response = await fetch("http://159.89.174.77:5000/api/logout", {
+            const response = await fetch(`${API_BASE_URL}/api/logout`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1217,7 +1217,7 @@ fetchProfiles(); // Fetch profiles on page load
 
 
 function fetchProfiles() {
-    fetch("http://159.89.174.77:5000/api/allprofiles") // Replace with actual API URL
+    fetch(`${API_BASE_URL}/api/allprofiles`) // Replace with actual API URL
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -1283,7 +1283,7 @@ function populateProfiles(profiles) {
                 <div class="all-pro-box ${isOnline}" data-useravil="${availability}" data-aviltxt="${availabilityText}">
                     <div class="pro-img">
                         <a href="profile-details.html?userId=${profile.id}">
-                            <img src="http://159.89.174.77:5000/${profile.image_1}" alt="">
+                            <img src="${API_BASE_URL}/${profile.image_1}" alt="">
                         </a>
                     </div>
                     <div class="pro-detail">
@@ -1359,7 +1359,7 @@ document.querySelectorAll(".cta-sendint").forEach(button => {
         };
 
         try {
-            const response = await fetch("http://159.89.174.77:5000/api/add-interests", {
+            const response = await fetch(`${API_BASE_URL}/api/add-interests`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
