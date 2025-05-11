@@ -171,6 +171,8 @@
 
                             <li class="plans-link"><a href="plans.html">Plans</a></li>
                             <li class="register-link"><a href="sign-up.html">Register</a></li>
+                            <li class="register-link2"><a href="create-user-profile.html">Register</a></li>
+
                                <li><a href="about.html">About us</a></li>                           
    
                                <li class="smenu-pare">
@@ -233,6 +235,8 @@
             <li><a href="all-profiles.html">View Profiles</a></li>
             <li><a href="plans.html">Plans</a></li>
             <li id="register-link"><a href="sign-up.html">Register</a></li>
+            <li id="register-link2"><a href="create-user-profile.html">Register</a></li>
+
             <li><a href="about.html">About us</a></li>
             <li class='mob-signin1'><a href="login.html">Login</a></li>
             </ul>                                   
@@ -272,6 +276,7 @@
                 <li class='dashboard-mob'><a href="user-dashboard.html">Dashboard</a></li>
                 <li class='user-profile-mob'><a href="user-profile.html">My profiles</a></li>
                 <li class="register-link"><a href="sign-up.html">Register</a></li>
+                <li class="register-link2"><a href="create-user-profile.html">Register</a></li>
                 <li class='mob-signin'><a href="login.html">Login</a></li>
                 <li><a href="plans.html">View plans</a></li>
                 
@@ -570,7 +575,7 @@
                                                         
 
 
-                                                        <option>Adi Dravidar</option>
+                                                        <option>Adi Dravida</option>
                                                     <option>Paraiyar</option>
                                                     <option>Devendrakula velalar</option>
                                                     <option>Irular</option>
@@ -1007,7 +1012,7 @@
                                                         </option>
                                                         <option>வெள்ளாளர்</option>
                                                         <option>உடையார்</option>
-                                                                <option>Adi Dravidar</option>
+                                                                <option>Adi Dravida</option>
                                                             <option>Paraiyar</option>
                                                             <option>Devendrakula velalar</option>
                                                             <option>Irular</option>
@@ -2042,6 +2047,7 @@ async function handleLogout(e) {
             // Default: hide all controlled elements
             document.querySelector(".plans-link")?.classList.add("hide");
             document.querySelector(".register-link")?.classList.add("hide");
+            document.querySelector(".register-link2")?.classList.add("hide");
             document.querySelector(".dashboard-section")?.classList.add("hide");
             document.querySelector(".my-profile")?.classList.add("hide");
             document.querySelector(".registering-link")?.classList.add("hide");
@@ -2051,6 +2057,8 @@ async function handleLogout(e) {
             document.querySelector(".user-profile-mob")?.classList.add("hide");
             document.querySelector(".mob-signin1")?.classList.add("hide");
             document.querySelector(".dashboard-mob")?.classList.add("hide");
+            document.querySelector(".register-link")?.classList.add("hide");
+
 
 
 
@@ -2079,9 +2087,9 @@ async function handleLogout(e) {
                     document.querySelector(".logout-only")?.classList.remove("hide");
                     document.querySelector(".logoutBtnMob")?.classList.remove("hide");
                     document.querySelector(".user-profile-mob")?.classList.remove("hide");
-
-
+                    document.querySelector(".register-link2")?.classList.remove("hide");
                     break;
+                    
                 case "user":
                     document.querySelector(".plans-link")?.classList.remove("hide");
                     document.querySelector(".logout-only")?.classList.remove("hide");

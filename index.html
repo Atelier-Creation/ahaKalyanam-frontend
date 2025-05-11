@@ -202,6 +202,8 @@
                             <li class="plans-link"><a href="plans.html">Plans</a></li>
 
                             <li class="register-link"><a href="sign-up.html">Register</a></li>
+                            <li class="register-lin-2"><a href="create-user-profile.html">Register</a></li>
+
                             <li class="my-profile"><a href="user-profile.html">My profile</a></li>
 
                             <li><a href="about.html">About us</a></li>
@@ -264,8 +266,10 @@
             <h4><i class="fa fa-globe" aria-hidden="true"></i> More Menu</h4>
             <ul>
                 <li><a href="all-profiles.html">View Profiles</a></li>
-                <li><a href="plans.html">Plans</a></li>
-                <li id="register-link"><a href="sign-up.html">Register</a></li>
+                            <li class="plans-link-1"><a href="plans.html">Plans</a></li>
+                <li class="register-link-1"><a href="sign-up.html">Register</a></li>
+                                            <li class="register-link-2"><a href="create-user-profile.html">Register</a></li>
+
                 <li><a href="about.html">About us</a></li>
                 <li class='mob-signin1'><a href="#" onclick="redirectToLogin()">Login</a></li>
                 </ul>                                   
@@ -304,9 +308,11 @@
             <ul>
                 <li class='dashboard-mob'><a href="user-dashboard.html">Dashboard</a></li>
                 <li class='user-profile-mob'><a href="user-profile.html">My profiles</a></li>
-                <li class="register-link"><a href="sign-up.html">Register</a></li>
+                <li class="register-link-1"><a href="sign-up.html">Register</a></li>
+                                            <!-- <li class="register-link2"><a href="create-user-profile.html">Register</a></li> -->
+
                 <li class='mob-signin'><a href="#" onclick="redirectToLogin()">Login</a></li>
-                <li><a href="plans.html">View plans</a></li>
+                            <li class="plans-link-1"><a href="plans.html">Plans</a></li>
                 
             </ul>
             <ul><li class="logoutBtnMob"><a href="#" id="logoutBtnMob">Logout</a></li></ul>
@@ -1578,16 +1584,23 @@ async function handleLogout(e) {
 
             // Default: hide all controlled elements
             document.querySelector(".plans-link")?.classList.add("hide");
+            document.querySelector(".plans-link-1")?.classList.add("hide");
+
             document.querySelector(".register-link")?.classList.add("hide");
+            document.querySelector(".register-link-1")?.classList.add("hide");
+
+            
+            document.querySelector(".register-link-2")?.classList.add("hide");
             document.querySelector(".dashboard-section")?.classList.add("hide");
             document.querySelector(".my-profile")?.classList.add("hide");
-            document.querySelector(".registering-link")?.classList.add("hide");
             //mobile  menu 
             document.querySelector(".logoutBtnMob")?.classList.add("hide");
             document.querySelector(".mob-signin")?.classList.add("hide");
             document.querySelector(".user-profile-mob")?.classList.add("hide");
             document.querySelector(".mob-signin1")?.classList.add("hide");
             document.querySelector(".dashboard-mob")?.classList.add("hide");
+
+
 
 
 
@@ -1616,11 +1629,17 @@ async function handleLogout(e) {
                     document.querySelector(".logout-only")?.classList.remove("hide");
                     document.querySelector(".logoutBtnMob")?.classList.remove("hide");
                     document.querySelector(".user-profile-mob")?.classList.remove("hide");
+                    // document.querySelector(".register-link-1")?.classList.add("hide");
+                    document.querySelector(".plans-link-1")?.classList.add("hide");
+
+
+
+                    document.querySelector(".register-link-2")?.classList.remove("hide");
+
 
 
                     break;
                 case "user":
-                    document.querySelector(".plans-link")?.classList.remove("hide");
                     document.querySelector(".logout-only")?.classList.remove("hide");
                     document.querySelector(".user-profile-mob")?.classList.remove("hide");
                     document.querySelector(".user-profile.html")?.classList.remove("hide");

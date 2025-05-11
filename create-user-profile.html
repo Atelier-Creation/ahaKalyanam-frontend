@@ -1336,7 +1336,7 @@
             const token = localStorage.getItem("access_token");
 
 
-            fetch(`${API_BASE_URL}/api/logout`, {
+            fetch(`http://159.89.174.77:5000/api/logout`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1493,7 +1493,7 @@
         //             console.log("Token from localStorage:", token); // Debugging line
         //             // console.log("Profile data to be sent:", profileData); // Debugging line
 
-        //             fetch(`${API_BASE_URL}/api/registerProfile`, {
+        //             fetch(`${http://159.89.174.77:5000/}/api/registerProfile`, {
         //                 method: "POST",
         //                 headers: {
         //                     "Authorization": `Bearer ${token}`
@@ -1509,7 +1509,7 @@
         //                         console.log("Successfully Created user :", data);
         //                         alert("Profile created successfully!");
 
-        //                         fetch("${API_BASE_URL}/api/promote-to-moderator", {
+        //                         fetch("${http://159.89.174.77:5000/}/api/promote-to-moderator", {
         //             method: "POST",
         //             headers: {
         //                 "Content-Type": "application/json"
@@ -1659,7 +1659,7 @@
                 submitBtn.textContent = "Submitting...";
 
 
-                fetch(`${API_BASE_URL}/api/registerProfile`, {
+                fetch(`http://159.89.174.77:5000/api/registerProfile`, {
                     method: "POST",
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -1673,9 +1673,9 @@
                                 
                                 submitBtn.disabled = false;
                                 submitBtn.textContent = "Submit";
-                                window.location.href = "index.html";
+                                // window.location.href = "index.html";
 
-                                return fetch(`${API_BASE_URL}/api/promote-to-moderator`, {
+                                return fetch(`http://159.89.174.77:5000/api/promote-to-moderator`, {
                                     method: "POST",
                                     headers: {
                                         "Content-Type": "application/json",
@@ -1684,7 +1684,9 @@
                                     body: JSON.stringify({ register_number }),
                                 }).then((response)=>{console.log(response);
                                 })
-                                alert("Profile created successfully!");
+                                alert("Updated successfully!");
+                                window.location.href = "index.html";
+
                             });
                         } else {
                             return response.json().then((err) => {
@@ -1701,7 +1703,6 @@
                         } else {
                             alert("Profile created, but failed to update role.");
                         }
-                        window.location.href = "index.html";
                     }).catch((error) => {
                         console.error("Error:", error);
                         alert("Something went wrong.");
@@ -1897,7 +1898,7 @@
         const token = localStorage.getItem("access_token");
 
         try {
-            const response = await fetch(`${API_BASE_URL}/api/logout`, {
+            const response = await fetch(`http://159.89.174.77:5000/api/logout`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
