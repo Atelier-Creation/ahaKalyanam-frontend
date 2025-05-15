@@ -171,6 +171,8 @@
 
                             <li class="plans-link"><a href="plans.html">Plans</a></li>
                             <li class="register-link"><a href="sign-up.html">Register</a></li>
+                            <li class="register-link2"><a href="create-user-profile.html">Register</a></li>
+
                                <li><a href="about.html">About us</a></li>                           
    
                                <li class="smenu-pare">
@@ -233,6 +235,8 @@
             <li><a href="all-profiles.html">View Profiles</a></li>
             <li><a href="plans.html">Plans</a></li>
             <li id="register-link"><a href="sign-up.html">Register</a></li>
+            <li id="register-link2"><a href="create-user-profile.html">Register</a></li>
+
             <li><a href="about.html">About us</a></li>
             <li class='mob-signin1'><a href="login.html">Login</a></li>
             </ul>                                   
@@ -272,6 +276,7 @@
                 <li class='dashboard-mob'><a href="user-dashboard.html">Dashboard</a></li>
                 <li class='user-profile-mob'><a href="user-profile.html">My profiles</a></li>
                 <li class="register-link"><a href="sign-up.html">Register</a></li>
+                <li class="register-link2"><a href="create-user-profile.html">Register</a></li>
                 <li class='mob-signin'><a href="login.html">Login</a></li>
                 <li><a href="plans.html">View plans</a></li>
                 
@@ -326,7 +331,7 @@
                                         <div class="edit-pro-parti">    
                                             <div class="form-tit">
                                                 <h4>Basic info</h4>
-                                                <h1>Advanced bio/மேம்பட்ட உயிர்
+                                                <h1>Advanced bio
                                                 </h1>
                                                 
                                             </div>
@@ -513,7 +518,6 @@
                                             <div class="form-tit">  
                                                 <h4>Basic info</h4>
                                                 <h1>Astrology Details/ஜோதிட விவரங்கள்
-                                                    ஜோதிட விவரங்கள்
 
                                                 </h1>
                                             </div>
@@ -524,6 +528,8 @@
                                                         <option>Choose one</option>
                                                         <option>குறும்பர் (Kurumbar)</option>
                                                         <option>குறும்ப கவுண்டர்</option>
+                                                         <option>நாடார்</option>
+                                    <option>விஸ்வகர்மா</option>
                                                         <option>ராவ்</option>
                                                         <option>சிங்</option>
                                                         <option>சைவப் பிள்ளை</option>
@@ -570,7 +576,7 @@
                                                         
 
 
-                                                        <option>Adi Dravidar</option>
+                                                        <option>Adi Dravida</option>
                                                     <option>Paraiyar</option>
                                                     <option>Devendrakula velalar</option>
                                                     <option>Irular</option>
@@ -594,6 +600,15 @@
                                                     </label>
                                                     <select class="form-select chosen-select" name="sub_caste" data-placeholder="Select your City" disabled>
                                                         <option>Choose one</option>
+
+                                                        <option>கம்மாளர்</option>
+    <option >கொங்கு வெள்ளாளர்</option>
+    <option>கள்ளர்</option>
+    <option>கொடிக்கால்</option>
+    <option>மாயாச்சர்</option>
+    <option>மோப்பனர்</option>
+    <option >வெள்ளன் செட்டி</option>
+    <option >சுருதிமார் உடையார்</option>
                                                         <option value="வன்னியா">வன்னியா</option>
                                                         <option value="வன்னிய கவுண்டர்">வன்னிய கவுண்டர்</option>
                                                         <option value="கவுண்டர்">கவுண்டர்</option>
@@ -1007,7 +1022,8 @@
                                                         </option>
                                                         <option>வெள்ளாளர்</option>
                                                         <option>உடையார்</option>
-                                                                <option>Adi Dravidar</option>
+                                                        
+                                                                <option>Adi Dravida</option>
                                                             <option>Paraiyar</option>
                                                             <option>Devendrakula velalar</option>
                                                             <option>Irular</option>
@@ -1030,6 +1046,15 @@
                                                             </label>
                                                             <select class="form-select chosen-select" name="partner_sub_caste" data-placeholder="Select your City" disabled>
                                                                 <option>Choose one</option>
+
+                                                                <option>கம்மாளர்</option>
+    <option >கொங்கு வெள்ளாளர்</option>
+    <option>கள்ளர்</option>
+    <option>கொடிக்கால்</option>
+    <option>மாயாச்சர்</option>
+    <option>மோப்பனர்</option>
+    <option >வெள்ளன் செட்டி</option>
+    <option >சுருதிமார் உடையார்</option>
                                                                 <option value="வன்னியா">வன்னியா</option>
                                                                 <option value="வன்னிய கவுண்டர்">வன்னிய கவுண்டர்</option>
                                                                 <option value="கவுண்டர்">கவுண்டர்</option>
@@ -2043,6 +2068,7 @@ async function handleLogout(e) {
             // Default: hide all controlled elements
             document.querySelector(".plans-link")?.classList.add("hide");
             document.querySelector(".register-link")?.classList.add("hide");
+            document.querySelector(".register-link2")?.classList.add("hide");
             document.querySelector(".dashboard-section")?.classList.add("hide");
             document.querySelector(".my-profile")?.classList.add("hide");
             document.querySelector(".registering-link")?.classList.add("hide");
@@ -2052,6 +2078,8 @@ async function handleLogout(e) {
             document.querySelector(".user-profile-mob")?.classList.add("hide");
             document.querySelector(".mob-signin1")?.classList.add("hide");
             document.querySelector(".dashboard-mob")?.classList.add("hide");
+            document.querySelector(".register-link")?.classList.add("hide");
+
 
 
 
@@ -2083,9 +2111,9 @@ async function handleLogout(e) {
                     document.querySelector(".user-profile-mob")?.classList.remove("hide");
                     document.querySelector(".notify")?.classList.remove("hide");
                     document.querySelector(".editBtn")?.setAttribute("disabled", "true");
-
-
+                    document.querySelector(".register-link2")?.classList.remove("hide");
                     break;
+                    
                 case "user":
                     document.querySelector(".plans-link")?.classList.remove("hide");
                     document.querySelector(".logout-only")?.classList.remove("hide");

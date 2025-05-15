@@ -202,6 +202,8 @@
                             <li class="plans-link"><a href="plans.html">Plans</a></li>
 
                             <li class="register-link"><a href="sign-up.html">Register</a></li>
+                            <li class="register-lin-2"><a href="create-user-profile.html">Register</a></li>
+
                             <li class="my-profile"><a href="user-profile.html">My profile</a></li>
 
                             <li><a href="about.html">About us</a></li>
@@ -264,8 +266,10 @@
             <h4><i class="fa fa-globe" aria-hidden="true"></i> More Menu</h4>
             <ul>
                 <li><a href="all-profiles.html">View Profiles</a></li>
-                <li><a href="plans.html">Plans</a></li>
-                <li id="register-link"><a href="sign-up.html">Register</a></li>
+                            <li class="plans-link-1"><a href="plans.html">Plans</a></li>
+                <li class="register-link-1"><a href="sign-up.html">Register</a></li>
+                                            <li class="register-link-2"><a href="create-user-profile.html">Register</a></li>
+
                 <li><a href="about.html">About us</a></li>
                 <li class='mob-signin1'><a href="#" onclick="redirectToLogin()">Login</a></li>
                 </ul>                                   
@@ -304,9 +308,11 @@
             <ul>
                 <li class='dashboard-mob'><a href="user-dashboard.html">Dashboard</a></li>
                 <li class='user-profile-mob'><a href="user-profile.html">My profiles</a></li>
-                <li class="register-link"><a href="sign-up.html">Register</a></li>
+                <li class="register-link-1"><a href="sign-up.html">Register</a></li>
+                                            <!-- <li class="register-link2"><a href="create-user-profile.html">Register</a></li> -->
+
                 <li class='mob-signin'><a href="#" onclick="redirectToLogin()">Login</a></li>
-                <li><a href="plans.html">View plans</a></li>
+                            <li class="plans-link-1"><a href="plans.html">Plans</a></li>
                 
             </ul>
             <ul><li class="logoutBtnMob"><a href="#" id="logoutBtnMob">Logout</a></li></ul>
@@ -428,6 +434,15 @@
                                                     <label>sub_caste</label>
                                                     <select class="chosen-select form-control">
                                                         <option value="">Sub-caste</option>
+    <option value="கைக்கொள்ளர்">கைக்கொள்ளர்</option>
+    <option value="கம்மாளர்">கம்மாளர்</option>
+    <option value="கொங்கு வெள்ளாளர்">கொங்கு வெள்ளாளர்</option>
+    <option value="கள்ளர்">கள்ளர்</option>
+    <option value="கொடிக்கால்">கொடிக்கால்</option>
+    <option value="மாயாச்சர்">மாயாச்சர்</option>
+    <option value="மோப்பனர்">மோப்பனர்</option>
+    <option value="வெள்ளன் செட்டி">வெள்ளன் செட்டி</option>
+    <option value="சுருதிமார் உடையார்">சுருதிமார் உடையார்</option>
                                                         <option value="வன்னியா">வன்னியா</option>
                                                         <option value="வன்னிய கவுண்டர்">வன்னிய கவுண்டர்</option>
                                                         <option value="கவுண்டர்">கவுண்டர்</option>
@@ -517,6 +532,9 @@
                                                         <option value="நாயுடு">நாயுடு</option>
                                                         <option value="யாதவர்">யாதவர்</option>
                                                         <option value="முதலியார்">முதலியார்</option>
+                                                         <option value="நாடார்">நாடார்</option>
+                                                        
+                                                         <option value="விஸ்வகர்மா">விஸ்வகர்மா</option>
                                                         <option value="செட்டியார்">செட்டியார்</option>
                                                         <option value="சோழிய வெள்ளாளர்">சோழிய வெள்ளாளர்</option>
                                                         <option value="முத்தரையர்">முத்தரையர்</option>
@@ -543,10 +561,49 @@
                                                         <option value="ஈரான் வளர்">ஈரான் வளர்</option>
                                                         <option value="வெள்ளாளர்">வெள்ளாளர்</option>
                                                         <option value="உடையார்">உடையார்</option>
+                                                        <option value="Adi Andhra">Adi Andhra</option>
+<option value="Adi Karnataka">Adi Karnataka</option>
+<option value="Ajila">Ajila</option>
+<option value="Arunthathiyar">Arunthathiyar</option>
+<option value="Ayyanavar (in Kanyakumari district and Shenkottah taluk of Tirunelveli district)">Ayyanavar (in Kanyakumari district and Shenkottah taluk of Tirunelveli district)</option>
+<option value="Baira">Baira</option>
+<option value="Bakuda">Bakuda</option>
+<option value="Badagas">Badagas</option>
+<option value="Balija">Balija</option>
+<option value="Boyar">Boyar</option>
+<option value="Iyer">Iyer</option>
+<option value="Iyengar">Iyengar</option>
+<option value="Kamma">Kamma</option>
+<option value="Kapu">Kapu</option>
+<option value="Kongu Vellalar">Kongu Vellalar</option>
+<option value="Kotas">Kotas</option>
+<option value="Maravar">Maravar</option> <!-- duplicate label; already present -->
+<option value="Nadar">Nadar</option>
+<option value="Nagarathar">Nagarathar</option>
+<option value="Pallar">Pallar</option>
+<option value="Paravar">Paravar</option>
+<option value="Rajus">Rajus</option>
+<option value="Saurashtra Language">Saurashtra Language</option>
+<option value="Sengunthar">Sengunthar</option>
+<option value="Thondaimandala Mudaliar">Thondaimandala Mudaliar</option>
+<option value="Toda People (Revised ed.)">Toda People (Revised ed.)</option>
+<option value="Vadama">Vadama</option>
+<option value="குறும்பர் (Kurumbar)">குறும்பர் (Kurumbar)</option>
+<option value="குறும்ப கவுண்டர்">குறும்ப கவுண்டர்</option>
+<option value="ராவ்">ராவ்</option>
+<option value="சிங்">சிங்</option>
+<option value="சைவப் பிள்ளை">சைவப் பிள்ளை</option>
+<option value="கொல்லர்">கொல்லர்</option>
+<option value="தட்டார்">தட்டார்</option>
+<option value="பண்டாரி">பண்டாரி</option>
+<option value="கைக்கோளர்">கைக்கோளர்</option>
+<option value="வீரக்குடி வெள்ளாளர்">வீரக்குடி வெள்ளாளர்</option>
+<option value="கிறிஸ்துவ நாடா">கிறிஸ்துவ நாடா</option>
 
 
 
-                                                        <option value="Adi Dravidar">Adi Dravidar</option>
+
+                                                        <option value="Adi Dravida">Adi Dravida</option>
                                                         <option value="Paraiyar">Paraiyar</option>
                                                         <option value="Devendrakula velalar">Devendrakula velalar
                                                         </option>
@@ -1578,16 +1635,23 @@ async function handleLogout(e) {
 
             // Default: hide all controlled elements
             document.querySelector(".plans-link")?.classList.add("hide");
+            document.querySelector(".plans-link-1")?.classList.add("hide");
+
             document.querySelector(".register-link")?.classList.add("hide");
+            document.querySelector(".register-link-1")?.classList.add("hide");
+
+            
+            document.querySelector(".register-lin-2")?.classList.add("hide");
             document.querySelector(".dashboard-section")?.classList.add("hide");
             document.querySelector(".my-profile")?.classList.add("hide");
-            document.querySelector(".registering-link")?.classList.add("hide");
             //mobile  menu 
             document.querySelector(".logoutBtnMob")?.classList.add("hide");
             document.querySelector(".mob-signin")?.classList.add("hide");
             document.querySelector(".user-profile-mob")?.classList.add("hide");
             document.querySelector(".mob-signin1")?.classList.add("hide");
             document.querySelector(".dashboard-mob")?.classList.add("hide");
+
+
 
 
 
@@ -1616,16 +1680,19 @@ async function handleLogout(e) {
                     document.querySelector(".logout-only")?.classList.remove("hide");
                     document.querySelector(".logoutBtnMob")?.classList.remove("hide");
                     document.querySelector(".user-profile-mob")?.classList.remove("hide");
+                    document.querySelector(".plans-link-1")?.classList.add("hide");
+                    document.querySelector(".register-lin-2")?.classList.remove("hide");
+
 
 
                     break;
                 case "user":
-                    document.querySelector(".plans-link")?.classList.remove("hide");
                     document.querySelector(".logout-only")?.classList.remove("hide");
                     document.querySelector(".user-profile-mob")?.classList.remove("hide");
                     document.querySelector(".user-profile.html")?.classList.remove("hide");
                     document.querySelector(".my-profile")?.classList.remove("hide");
                     document.querySelector(".logoutBtnMob")?.classList.remove("hide");
+
 
 
 
