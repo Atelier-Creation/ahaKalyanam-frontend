@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-
+    <script src="js/config.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -972,8 +972,52 @@
 </section>
 <!-- END -->
 
-<script src="js/config.js"></script>
+
 <script>
+
+function sendInterest(likedProfileId) {
+  const accessToken2 = localStorage.getItem("access_token");
+
+  if (!accessToken2) {
+    alert("You must be logged in to send interest.");
+    return;
+  }
+
+  const userId = getUserIdFromToken(accessToken2);
+
+  if (!userId) {
+    alert("Invalid session. Please log in again.");
+    return;
+  }
+
+  const requestData = {
+    user_id: userId,
+    liked_profile_id: likedProfileId
+  };
+
+  fetch(`${API_BASE_URL}/api/add-interests`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${accessToken2}`
+    },
+    body: JSON.stringify(requestData)
+  })
+    .then(res => res.json())
+    .then(result => {
+      console.log(result);
+      if (result.message && result.message.success) {
+        alert("Interest sent successfully!");
+        } else {
+        alert(result.message?.message || "Failed to send interest.");
+        }
+    })
+    .catch(err => {
+      console.error("Error:", err);
+      alert("Something went wrong. Please try again later.");
+    });
+}
+
 
     
 document.getElementById("logoutBtn").addEventListener("click", async function (e) {
@@ -1289,12 +1333,12 @@ function populateProfiles(profiles) {
                     <div class="pro-detail">
                         <h4><a href="profile-details.html?userId=${profile.id}">${profile.name}</a></h4>
                         <div class="pro-bio">
-                            <span class="fs-4 fw-semibold text-light p-2">Regis No : #${profile.id}</span>
+                            <span class="d-inline-block pl-3 p-2">Regis No : <strong>#${profile.id}</strong></span>
                             <span class="d-inline-block pl-3 p-2">Caste: ${profile.caste}</span>
-                            <span class="d-inline-block pl-3 p-2" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px; display: inline-block;">Sub cast : ${profile.sub_caste || "no bar"}</span>
+                            <span class="d-inline-block pl-3 p-2" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 140px; display: inline-block;">Sub cast : ${profile.sub_caste || "no bar"}</span>
                         </div>
                         <div class="links">
-                            <a href="#!" class="cta cta-sendint" data-user-id="${profile.linked_to}" data-bs-toggle="modal" data-bs-target="#sendInter">Send Interest</a>
+                            <a href="#!" class="cta cta-sendint" onclick="sendInterest('${profile.id}')" data-user-id="${profile.linked_to}" data-bs-toggle="modal" data-bs-target="#sendInter">Send Interest</a>
                             <a href="profile-details.html?userId=${profile.id}">More details</a>
                         </div>
                     </div>
@@ -1333,56 +1377,59 @@ document.getElementById("back-btn").addEventListener("click", loadPreviousBatch)
 
 
 
+// document.addEventListener("DOMContentLoaded", function () {
+// document.querySelectorAll(".cta-sendint").forEach(button => {
+//     button.addEventListener("click", async function () {
+//         const likedProfileId = this.getAttribute("data-user-id"); // Get the liked profile ID
+//         const accessToken2 = localStorage.getItem("access_token");
 
-document.querySelectorAll(".cta-sendint").forEach(button => {
-    button.addEventListener("click", async function () {
-        const likedProfileId = this.getAttribute("data-user-id"); // Get the liked profile ID
-        const accessToken2 = localStorage.getItem("access_token");
+//         if (!accessToken2) {
+//             alert("You must be logged in to send interest.");
+//             return;
+//         }
 
-        if (!accessToken2) {
-            alert("You must be logged in to send interest.");
-            return;
-        }
+//         // Decode JWT token to get user_id
+//         const userId = getUserIdFromToken(accessToken2);
 
-        // Decode JWT token to get user_id
-        const userId = getUserIdFromToken(accessToken2);
+//         if (!userId) {
+//             alert("Invalid session. Please log in again.");
+//             return;
+//         }
 
-        if (!userId) {
-            alert("Invalid session. Please log in again.");
-            return;
-        }
+//         // Prepare JSON request
+//         const requestData = {
+//             user_id: userId,
+//             liked_profile_id: likedProfileId
+//         };
 
-        // Prepare JSON request
-        const requestData = {
-            user_id: userId,
-            liked_profile_id: likedProfileId
-        };
+//         try {
+//             const response = await fetch(`${API_BASE_URL}/api/add-interests`, { //api url is js/config.js
+//                 method: "POST",
+//                 headers: {
+//                     "Content-Type": "application/json",
+//                     "Authorization": `Bearer ${accessToken2}` // Pass token for authentication
+//                 },
+//                 body: JSON.stringify(requestData)
+//             });
 
-        try {
-            const response = await fetch(`${API_BASE_URL}/api/add-interests`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${accessToken2}` // Pass token for authentication
-                },
-                body: JSON.stringify(requestData)
-            });
-
-            const result = await response.json();
-
-            if (response.ok) {
-                alert("Interest sent successfully!");
-            } else {
-                alert(result.message || "Failed to send interest.");
-            }
-        } catch (error) {
-            console.error("Error:", error);
-            alert("Something went wrong. Please try again later.");
-        }
-    });
-});
+//             const result = await response.json();
+//             console.log(result);
+            
+//             if (response.ok) {
+//                 alert("Interest sent successfully!");
+//             } else {
+//                 alert(result.message || "Failed to send interest.");
+//             }
+//         } catch (error) {
+//             console.error("Error:", error);
+//             alert("Something went wrong. Please try again later.");
+//         }
+//     });
+// });
+// });
 
 // Function to Decode JWT and Extract User ID
+
 function getUserIdFromToken(token) {
     try {
 

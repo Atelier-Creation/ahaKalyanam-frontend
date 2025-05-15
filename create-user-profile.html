@@ -1648,7 +1648,7 @@
                     console.log(`${key}:`, value);
                 }
 
-                const register_number = sessionStorage.getItem("registered_user_id");
+                const register_number = sessionStorage.getItem("registered_user_id") || localStorage.getItem("registered_user_id");
                 const token = localStorage.getItem("access_token");
 
                 if (!register_number || !token) {
@@ -1670,10 +1670,11 @@
                         if (response.status === 200) {
                             return response.json().then((data) => {
                                 console.log("Successfully created user:", data);
-                                
+                                localStorage.setItem("Profile_id",data.id);
                                 submitBtn.disabled = false;
                                 submitBtn.textContent = "Submit";
                                 window.location.href = "index.html";
+                                  alert("Profile created successfully!");
 
                                 return fetch(`${API_BASE_URL}/api/promote-to-moderator`, {
                                     method: "POST",
@@ -1760,7 +1761,7 @@
             if (role === "admin") {
                 linkedTo = sessionStorage.getItem("registered_user_id");
             } else if (role === "moderator") {
-                linkedTo = currentUserId;
+                linkedTo = sessionStorage.getItem("registered_user_id")|| currentUserId;
             }
 
             if (linkedTo) {

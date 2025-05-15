@@ -366,7 +366,7 @@
                     </div>
                 </li>
                 <li>
-                    <div class="db-int-pro-1"> <img src="images/profiles/men3.jpg" alt=""> <span class="badge bg-primary user-pla-free">Free user</span></div>
+                    <div class="db-int-pro-1"> <img src="images/profiles/men3.jpg" alt=""></div>
                     <div class="db-int-pro-2">
                         <h5>John Smith</h5> 
                         <ol class="poi">
@@ -520,7 +520,9 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const userId = localStorage.getItem("viewProfileUserId");
+            console.log(localStorage);
+            
+            const userId = localStorage.getItem("user_id");
             const accessToken = localStorage.getItem("access_token");
         
             fetch(`${API_BASE_URL}/api/user-interest-profiles/${userId}`, {
@@ -533,9 +535,10 @@
             .then(response => response.json())
             .then(response => {
                 const profiles = response.data; // assuming this is an array of profiles
+               
                 const container = document.querySelector("#home .db-inte-prof-list ul");
                 container.innerHTML = ""; // Clear existing content
-        
+                if(profiles.length ==0) container.innerHTML = "No Intrest found";
                 console.log(profiles); // Log the profiles to check the data structure
                 profiles.forEach(profile => {
                     const name = profile["name"] || "Unknown";
@@ -545,7 +548,6 @@
                     const id = profile['id'] || "-";
                     const caste = profile["caste"] || "-";
                     const job = profile["job"] || "-";
-                    const userType = profile["user_type"] || "Free"; // Platinum, Gold, etc.
                     const image = profile["image_1"] || "images/profiles/default.jpg";
                     const sub_caste = profile["sub_caste"] || "N/A";
                     const profileLink = `profile-details.html?id=${profile["id"]}`; // optional
@@ -553,7 +555,8 @@
                     const imageUrl =   `${API_BASE_URL}/${image}`;
 
                     console.log(imageUrl);
-        
+                    const role = profile["role"]
+                    const userType = role === "moderator" ? "Gold" : "free";
                     const badgeClass = {
                         "Platinum": "user-pla-pat",
                         "Gold": "user-pla-gold",
@@ -655,6 +658,7 @@ async function handleLogout(e) {
             document.querySelector(".user-profile-mob")?.classList.add("hide");
             document.querySelector(".mob-signin1")?.classList.add("hide");
             document.querySelector(".dashboard-mob")?.classList.add("hide");
+            document.querySelector(".dashboard-menu")?.classList.add("hide");
 
 
 
@@ -676,6 +680,7 @@ async function handleLogout(e) {
                     document.querySelector(".logoutBtnMob")?.classList.remove("hide");
                     document.querySelector(".dashboard-mob")?.classList.remove("hide");
                     document.querySelector(".user-profile-mob")?.classList.remove("hide");
+                    document.querySelector(".dashboard-menu")?.classList.remove("hide");
                     
                     break;
                 case "moderator":

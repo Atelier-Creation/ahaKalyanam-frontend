@@ -375,7 +375,7 @@
         </section>
         <!-- END -->
     <!-- END -->
-
+        <script src="js/config.js"></script>
 
 
     <script>
@@ -531,7 +531,7 @@ async function startPayment() {
     return;
   }
 
-  const res = await fetch("http://159.89.174.77:5000/api/create-order", {
+  const res = await fetch(`${API_BASE_URL}/api/create-order`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -540,45 +540,81 @@ async function startPayment() {
   });
 
   const data = await res.json();
+  
   const order = data.order;
 
   const options = {
     key: "rzp_test_FaDMhj1BABXeNp", // Razorpay public key
-    amount: order.amount,
-    currency: order.currency,
+    amount: order?.amount,
+    currency: order?.currency,
     name: "Aahakalyanam",
     description: "Premium Membership",
-    order_id: order.id,
+    order_id: order?.id,
     handler: async function (response) {
-      console.log("Payment successful:", response);
+  console.log("Payment successful:", response);
 
-      // 🎯 Update user role after payment
-      try {
-        const upgradeRes = await fetch("http://159.89.174.77:5000/api/promote-to-moderator", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            register_number: user_id, // Use the extracted user ID
-          })
-        });
+  const { razorpay_payment_id, razorpay_order_id, razorpay_signature } = response;
 
-        const upgradeResult = await upgradeRes.json();
+  try {
+    // ✅ Step 1: Verify payment with backend
+    const verifyRes = await fetch(`${API_BASE_URL}/api/verify-payment`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        razorpay_order_id,
+        razorpay_payment_id,
+        razorpay_signature
+      })
+    });
 
-        if (upgradeRes.ok) {
-          alert("Payment successful & role updated! you can now view all profiles");
-          // Optionally reload or redirect
-           window.location.href = "all-profiles.html";
-        } else {
-          alert(upgradeResult.message || "Payment succeeded, but failed to update role.");
-        }
+    const verifyResult = await verifyRes.json();
 
-      } catch (err) {
-        console.error("Error upgrading role:", err);
-        alert("Payment succeeded, but role upgrade failed.");
-      }
-    },
+    if (!verifyRes.ok) {
+      alert("Payment verification failed. Contact support.");
+      return;
+    }
+
+    // ✅ Step 2: Promote the user
+    const upgradeRes = await fetch(`${API_BASE_URL}/api/promote-to-moderator`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        register_number: user_id,
+      }),
+    });
+    const registeredUserId = user_id;
+    console.log(registeredUserId);
+    
+
+    const upgradeResult = await upgradeRes.json();
+    console.log(upgradeResult);
+    
+   if (upgradeRes.ok) {
+  const { token: newToken } = upgradeResult;
+
+  if (newToken) {
+    console.log("New token received:", newToken);
+    localStorage.setItem("access_token", newToken); // ✅ Update token before redirect
+  }
+
+  sessionStorage.setItem("registered_user_id", registeredUserId);
+
+  alert("Payment verified & role updated! Please register your profile.");
+  window.location.href = "create-user-profile.html";
+
+    } else {
+      alert(upgradeResult.message || "Payment verified, but role upgrade failed.");
+    }
+
+  } catch (err) {
+    console.error("Error verifying payment or upgrading role:", err);
+    alert("Something went wrong. Try again.");
+  }
+},
     prefill: {
       name: "Test User",
       email: "test@example.com",

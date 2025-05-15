@@ -291,9 +291,9 @@
                                 </div>
                                 <div class="db-nav-list">
                                     <ul>
-                                        <li class="dashboard-menu">
-                                            <a href="user-dashboard.html">
-                                                <i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard
+                                        <li class="create-user-profile" id="createUserProfile" style="display: none;">
+                                            <a href="create-user-profile.html">
+                                                <i class="fa fa-user-plus" aria-hidden="true"></i>create Profile <span style="background-color: #ff3a3a;padding: .2rem .5rem;color: white;font-size: 8px;margin-bottom: 19px;border-radius: 50px;;">Pending</span>
                                             </a>
                                         </li>
                                         <li>
@@ -316,7 +316,7 @@
                                             <img id="profileImage" src="images/ahh kalayam_1.webp" loading="lazy" alt="User Profile Image">
                                         </div>
                                         <div class="edit">
-                                            <a href="view-user-profile.html" class="cta-dark" target="_blank">View profile</a>
+                                            <a href="javascript:void(0)" onclick="viewMyProfile(event)" class="cta-dark" target="_blank">View profile</a>
                                         </div>
                                     </div>
                                 </div>
@@ -449,6 +449,20 @@
         <script src="js/config.js"></script>
         <script>
 
+            function viewMyProfile(event) {
+    event.preventDefault(); // prevent default link behavior
+
+    const userId = localStorage.getItem("user_profileid");
+
+    if (userId) {
+        const url = `profile-details.html?userId=${userId}&from=user-profile`;
+        window.open(url, '_blank'); // open in a new tab
+    } else {
+        alert("User profile ID not found.");
+    }
+}
+
+
 async function handleLogout(e) {
         e.preventDefault();
         const buttonId = e.target.id;
@@ -492,6 +506,8 @@ async function handleLogout(e) {
 
     // role based menu Start
         document.addEventListener("DOMContentLoaded", function () {
+             id = localStorage.getItem("viewProfileUserId");
+        console.log("Fallback to localStorage ID:", id);
 
             const role = getUserRoleFromToken();
 
@@ -510,6 +526,7 @@ async function handleLogout(e) {
             document.querySelector(".mob-signin1")?.classList.add("hide");
             document.querySelector(".dashboard-mob")?.classList.add("hide");
             document.querySelector(".db-nav-list .dashboard-menu")?.classList.add("hide");
+            document.querySelector(".create-user-profile")?.classList.add("hide");
 
 
 
@@ -539,6 +556,7 @@ async function handleLogout(e) {
                     document.querySelector(".logout-only")?.classList.remove("hide");
                     document.querySelector(".logoutBtnMob")?.classList.remove("hide");
                     document.querySelector(".user-profile-mob")?.classList.remove("hide");
+                    document.querySelector(".create-user-profile")?.classList.remove("hide");
 
 
                     break;
@@ -549,6 +567,7 @@ async function handleLogout(e) {
                     document.querySelector(".user-profile.html")?.classList.remove("hide");
                     document.querySelector(".my-profile")?.classList.remove("hide");
                     document.querySelector(".logoutBtnMob")?.classList.remove("hide");
+                    
 
 
 
@@ -586,30 +605,53 @@ async function handleLogout(e) {
 // role based menu End
 
 
+const allLocalStorage = { ...localStorage };
+console.log(allLocalStorage);
+ const token = localStorage.getItem("access_token");
+const payload = JSON.parse(atob(token.split(".")[1]));
+console.log(payload);
+localStorage.setItem("registered_user_id",payload.user_id);
+
+id = localStorage.getItem("registered_user_id");
 
 
-    console.log("User ID: " + id); // Debugging
 
-
-    fetch(`${API_BASE_URL}/api/profile/${id}`, {
+fetch(`${API_BASE_URL}/api/profilebyuserid/${id}`, {
     method: "GET",
     headers: {
         "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json"
     }
 })
-    .then(response => response.json())
-    .then(data => {
+.then(async response => {
+    const data = await response.json();
+    if (!response.ok) {
+        throw data; // this will be caught in .catch()
+    }
+    return data;
+})
+.then(data => {
+    console.log("This is data " + data.data['id']); // Debugging
+    localStorage.setItem("user_profileid",data.data['id'])
 
-        console.log("THis is data " + data.data['name']); // Debugging
-        // Assuming your API returns something like: { name: ..., profile_image: "uploads/12.jpg" }
+    const imgPath = data.data['image_1']; // fallback image
+    document.getElementById("profileImage").src = imgPath? `${API_BASE_URL}/${imgPath}`:"images/ahh kalayam_1.webp";
 
-        const imgPath = data.data['image_1'] || "images/default.jpg"; // fallback if not found
-        document.getElementById("profileImage").src = `${API_BASE_URL}/${imgPath}`;
-    })
-    .catch(error => {
-        console.error("Error loading profile:", error);
-    });
+    // Hide create-profile if profile exists
+    document.getElementById("createUserProfile").style.display = "none";
+})
+.catch(error => {
+    console.error("Error loading profile:", error);
+
+    if (error?.error === "Error fetching user: User not found") {
+        // Show the create-profile section
+        document.getElementById("createUserProfile").style.display = "block";
+    } else {
+        alert("Something went wrong. Please try again.");
+    }
+});
+
+
 
 
 function getUserIdFromToken(token) {

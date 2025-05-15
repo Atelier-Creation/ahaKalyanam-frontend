@@ -724,7 +724,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
             if (role === "viewer") {
                 // Store token for viewer
                 sessionStorage.setItem("accessToken", result.accessToken);
-                window.location.href = "index.html"; // Go to viewer homepage
+                window.location.href = "login.html"; // Go to viewer homepage
             } else if (role === "admin") {
                 // Store registered user ID from result
                 const registeredUserId = result.message.user_id; // Adjust based on actual response key

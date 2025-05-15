@@ -566,6 +566,12 @@
 
                         <!-- PROFILE lHS -->
                         <div class="rhs">
+                            <div id="adminMessage" style="display: none; text-align: center;">
+                                <p class="text-danger">
+                                    Only admin can edit the profile. If you want to edit the profile, contact Admin 
+                                    <a href="tel:+918015666798">Call: +91 80156 66798</a>
+                                </p>
+                                </div>
                             <!-- HELP BOX -->
                             <div class="prof-rhs-help">
                                 <div class="inn register-header">
@@ -740,6 +746,19 @@
 
     <script src="js/config.js"></script>
     <script>
+
+     
+  function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+  }
+
+  // Show message only if coming from user-profile.html
+  const fromPage = getQueryParam('from');
+  if (fromPage === 'user-profile') {
+      document.getElementById("adminMessage").style.display = "block";
+  }
+
 
 function redirectToLogin(){
     const currentUrl = encodeURIComponent(window.location.href);
