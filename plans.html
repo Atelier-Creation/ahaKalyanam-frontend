@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/config.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -225,8 +226,8 @@
         <h4><i class="fa fa-globe" aria-hidden="true"></i> More Menu</h4>
         <ul>
             <li><a href="all-profiles.html">View Profiles</a></li>
-            <li><a href="plans.html">Plans</a></li>
             <li id="register-link"><a href="sign-up.html">Register</a></li>
+            <li><a href="plans.html">Plans</a></li>
             <li><a href="about.html">About us</a></li>
             <li class='mob-signin1'><a href="#" onclick="redirectToLogin()">Login</a></li>
             </ul>                                   
@@ -263,11 +264,12 @@
                     <h4>Support</h4>
                 </div>
             <ul>
-                <li class='dashboard-mob'><a href="user-dashboard.html">Dashboard</a></li>
+                
                 <li class='user-profile-mob'><a href="user-profile.html">My profiles</a></li>
                 <li class="register-link"><a href="sign-up.html">Register</a></li>
                 <li class='mob-signin'><a href="#" onclick="redirectToLogin()">Login</a></li>
-                <li><a href="plans.html">View plans</a></li>
+                <li><a href="plans.html">plans</a></li>
+                <li class='dashboard-mob'><a href="user-dashboard.html">Dashboard</a></li>
                 
             </ul>
             <ul><li class="logoutBtnMob"><a href="#" id="logoutBtnMob">Logout</a></li></ul>
@@ -391,7 +393,7 @@ async function handleLogout(e) {
         const token = localStorage.getItem("access_token");
 
         try {
-            const response = await fetch("http://159.89.174.77:5000/api/logout", {
+            const response = await fetch(`${API_BASE_URL}/api/logout`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -435,7 +437,7 @@ async function handleLogout(e) {
 
             // Default: hide all controlled elements
             document.querySelector(".plans-link")?.classList.add("hide");
-            document.querySelector(".register-link")?.classList.add("hide");
+            document.querySelector("#register-link")?.classList.add("hide");
             document.querySelector(".dashboard-section")?.classList.add("hide");
             document.querySelector(".my-profile")?.classList.add("hide");
             document.querySelector(".registering-link")?.classList.add("hide");

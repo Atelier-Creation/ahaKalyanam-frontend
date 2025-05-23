@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/config.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -67,9 +68,10 @@
                 </div>
                 <div class="rhs">
                     <ul>
-                        <li><a href="tel:+9704462944"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;+91 8015666798</a></li>
-                        <li><a href="mailto:info@example.com"><i class="fa fa-envelope-o"
-                                    aria-hidden="true"></i>&nbsp; aahakalynaminfo@gmail.com</a></li>
+                        <li><a href="tel:+9704462944"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;+91
+                                8015666798</a></li>
+                        <li><a href="mailto:info@example.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp;
+                                aahakalynaminfo@gmail.com</a></li>
                     </ul>
                 </div>
             </div>
@@ -88,7 +90,8 @@
                 <li><a href="#!"><i class="fa fa-phone" aria-hidden="true"></i>+92 (8800) 68 - 8960</a></li>
                 <li><a href="#!"><i class="fa fa-whatsapp" aria-hidden="true"></i>+92 (8800) 68 - 8960</a></li>
                 <li><a href="#!"><i class="fa fa-envelope-o" aria-hidden="true"></i>help@company.com</a></li>
-                <li><a href="#!"><i class="fa fa-map-marker" aria-hidden="true"></i>3812 Lena Lane City Jackson Mississippi</a></li>
+                <li><a href="#!"><i class="fa fa-map-marker" aria-hidden="true"></i>3812 Lena Lane City Jackson
+                        Mississippi</a></li>
             </ul>
             <div class="menu-pop-help">
                 <h4>Support Team</h4>
@@ -129,9 +132,9 @@
                     <span>aahakalyanaminfo@gmail.com</span>
                 </div>
             </div>
-            
 
-         
+
+
 
             <!-- HELP BOX -->
             <div class="prof-rhs-help">
@@ -143,11 +146,11 @@
             </div>
             <!-- END HELP BOX -->
         </div>
-    </div>  
+    </div>
     <!-- END HEADER & MENU -->
 
     <!-- HEADER & MENU -->
-    <div class="hom-top">   
+    <div class="hom-top">
         <div class="container">
             <div class="row">
                 <div class="hom-nav">
@@ -157,7 +160,8 @@
                             <i></i><i></i><i></i>
                         </span> -->
                         <a href="index.html" class="logo-brand">
-                            <div class="sm-logo"style="height: 70px;"><img src="images/20250409_201357_0000.png" alt="" loading="lazy" class="small-logo"></div>
+                            <div class="sm-logo" style="height: 70px;"><img src="images/20250409_201357_0000.png" alt=""
+                                    loading="lazy" class="small-logo"></div>
                             <img src="images/AHA KALYANAM LOGO.png" alt="Logo" loading="lazy" class="ic-logo">
                             <!-- <span class="logo-text">ஆஹா கல்யாணம்</span> -->
                         </a>
@@ -166,29 +170,32 @@
                     <!-- TOP MENU -->
                     <div class="bl">
                         <ul>
-                            <li><a href="all-profiles.html">View Profiles</a></li>                           
-
+                            <li><a href="all-profiles.html">View Profiles</a></li>
+                            <li class="register-link"><a href="sign-up.html">Register</a></li>
                             <li class="plans-link"><a href="plans.html">Plans</a></li>
-                               <li class="register-link"><a href="sign-up.html">Register</a></li>
-   
-                               <li class="smenu-pare">
-                                   <span class="smenu dashboard-section">Dashboard</span>
-                                   <div class="smenu-open smenu-single">
-                                       <ul>
-                                           <li ><a href="user-dashboard.html">Dashboard</a></li>
-                                           <li class="my-profile"><a href="user-profile.html">My profile</a></li>
-                                           <li><a href="user-interests.html">Interests</a></li>
-                                           <li><a href="login.html">Sign in</a></li>
-                                       </ul>
-                                   </div>
-                               </li>
+                            <li><a href="about.html">About us</a></li>
+                            <li class="my-profile"><a href="user-profile.html">My profile</a></li>
 
-                               <li class="my-profile"><a href="user-profile.html">My profile</a></li>
-                               <li><a href="/assets/pdfs/PDF%20ahh.pdf" download >Download PDF</a> </li>
 
-                               <li class="logout-only">
+                            <li class="smenu-pare  dashboard-section">
+                                <span class="smenu">Dashboard</span>
+                                <div class="smenu-open smenu-single">
+                                    <ul>
+                                        <li><a href="user-dashboard.html">Dashboard</a></li>
+                                        <li><a href="user-interests.html">Interests</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+
+                            <li class="pdf-download">
+                                <a href="/assets/pdfs/PDF%20ahh.pdf" download>Download PDF</a>
+                            </li>
+                            <li class="signin-only"><a href="#" onclick="redirectToLogin()">Sign in</a></li>
+                            <li class="logout-only">
                                 <a href="#" id="logoutBtn">Logout</a>
-                              </li>
+                            </li>
+
 
                         </ul>
                     </div>
@@ -221,59 +228,61 @@
     </div>
     <!-- END HEADER & MENU -->
 
-  <!-- MOBILE MENU POPUP -->
-  <div class="mob-me-all mobile_menu">
-    <div class="mob-me-clo"><img src="images/icon/close.svg" alt=""></div>
-    <div class="mv-bus">
-        <h4><i class="fa fa-globe" aria-hidden="true"></i> More Menu</h4>
-        <ul>
-            <li><a href="all-profiles.html">View Profiles</a></li>
-            <li><a href="plans.html">Plans</a></li>
-            <li id="register-link"><a href="sign-up.html">Register</a></li>
-            <li><a href="about.html">About us</a></li>
-            <li class='mob-signin1'><a href="login.html">Login</a></li>
-            </ul>                                   
-        <div class="menu-pop-help">
-            <h4>Support Team</h4>
-            <div class="user-pro">
-                <img src="images/20250409_201357_0000.png" alt="" loading="lazy">
+    <!-- MOBILE MENU POPUP -->
+    <div class="mob-me-all mobile_menu">
+        <div class="mob-me-clo"><img src="images/icon/close.svg" alt=""></div>
+        <div class="mv-bus">
+            <h4><i class="fa fa-globe" aria-hidden="true"></i> More Menu</h4>
+            <ul>
+                <li><a href="all-profiles.html">View Profiles</a></li>
+                <li><a href="plans.html">Plans</a></li>
+                <li id="register-link"><a href="sign-up.html">Register</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li class='mob-signin1'><a href="login.html">Login</a></li>
+            </ul>
+            <div class="menu-pop-help">
+                <h4>Support Team</h4>
+                <div class="user-pro">
+                    <img src="images/20250409_201357_0000.png" alt="" loading="lazy">
+                </div>
+                <div class="user-bio">
+                    <h5>Aahakalyanam</h5>
+                    <span>aahakalynaminfo@gmail.com</span>
+                </div>
             </div>
-            <div class="user-bio">
-                <h5>Aahakalyanam</h5>
-                <span>aahakalynaminfo@gmail.com</span>
-            </div>
-        </div>
 
 
-        <div class="prof-rhs-help">
-            <div class="inn">
-                <h3>Welcome</h3>
-                <p>Sign-in to explore more features </p>
-                <a href="sign-up.html">Register for free</a>
+            <div class="prof-rhs-help">
+                <div class="inn">
+                    <h3>Welcome</h3>
+                    <p>Sign-in to explore more features </p>
+                    <a href="sign-up.html">Register for free</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- END MOBILE MENU POPUP -->
+    <!-- END MOBILE MENU POPUP -->
 
     <!-- MOBILE USER PROFILE MENU POPUP -->
     <div class="mob-me-all dashbord_menu">
         <div class="mob-me-clo"><img src="images/icon/close.svg" alt=""></div>
         <div class="mv-bus">
-                <div class="head-pro">
-                    <img src="images/20250409_201357_0000.png" alt="" loading="lazy">
-                    <b>Aahakalyanam</b><br>
-                    <h4>Support</h4>
-                </div>
+            <div class="head-pro">
+                <img src="images/20250409_201357_0000.png" alt="" loading="lazy">
+                <b>Aahakalyanam</b><br>
+                <h4>Support</h4>
+            </div>
             <ul>
                 <li class='dashboard-mob'><a href="user-dashboard.html">Dashboard</a></li>
                 <li class='user-profile-mob'><a href="user-profile.html">My profiles</a></li>
                 <li class="register-link"><a href="sign-up.html">Register</a></li>
                 <li class='mob-signin'><a href="login.html">Login</a></li>
                 <li><a href="plans.html">View plans</a></li>
-                
+
             </ul>
-            <ul><li class="logoutBtnMob"><a href="#" id="logoutBtnMob">Logout</a></li></ul>
+            <ul>
+                <li class="logoutBtnMob"><a href="#" id="logoutBtnMob">Logout</a></li>
+            </ul>
         </div>
     </div>
     <!-- END USER PROFILE MENU POPUP -->
@@ -352,7 +361,7 @@
                     <!-- This is custom terms and conditions page  -->
                     <div class="container mt-5">
                         <h2 class="text-center mb-4">Terms & Conditions – Aha Kalyanam</h2>
-                        <div class="accordion" id="termsAccordion">
+                        <!-- <div class="accordion" id="termsAccordion">
                     
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
@@ -485,10 +494,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Add more sections similarly -->
-                            
+                            </div>                            
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingNine">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine">
@@ -505,17 +511,178 @@
                                 </div>
                             </div>
                     
+                        </div> -->
+                        <div class="mt-4 mx-5 px-4"
+                            style="max-height: 800px; text-align: justify; overflow-y: auto; white-space: pre-line; font-size: 1rem; line-height: 1.8; border: 1px solid #ccc; border-radius: 8px; padding: 20px; background-color: #f9f9f9;">
+                            <h1 class="text-center">வணக்கம்</h1>
+                            பொறுப்பான பெற்றோர்களே, மணம்முடிய காத்திருப்போர்களே, மற்றும் நண்பர்களே
+                            நமது ஆஹா கல்யாணம் மேட்ரிமோனி ஒரு இணைய வழி சுயம்வர மேடை, பதிவு செய்த வரன்களுக்கு எளிதில்
+                            திருமணம் முடிய எதுவாக முழுமையான விவரத்துடன், + புகைப்படம் + ஜாதகங்கள் + தொலைபேசி எண்
+                            உள்ளதால், வரன் தேடும் பதிவு செய்த, பதிவு செய்யாத யாவரும் இருக்கும் இடத்தில் இருந்தே இலவசமாக
+                            குடும்பத்தோடு பார்த்து திருமண முடிவுகள் எடுக்கவும், உடன் திருமணம் முடித்திட தொலைபேசியில்
+                            தொடர்பு கொள்ளவும் தில்லை மேட்ரிமோனி சுயம்வர மேடை <strong>(வரன் விளம்பர மேடை)</strong>
+                            வடிவமைக்கப்பட்டு
+                            உள்ளது.
+                            எந்த சிரமமும் இல்லாமல் 80 சதவீதம் பதிவு செய்தாலே திருமணம் முடிய வாய்ப்பு.
+                            ஆம், பதிவு மட்டும் செய்து இருந்தாலே போதும், வரன்கள் உங்களை தேடி வரும்.
+
+                            ஒரு வருட திருமண விளம்பர சேவை கட்டணம் <strong>(நேரிலும் / ஆன்லைன் வழி சேவை)</strong>: Rs.1000
+                            <strong>(குறிப்பு: நமது இந்திய ராணுவ பணி செய்பவருக்கும், மாற்றுத் திறனாளிகளுக்கும் சலுகை
+                                உண்டு.)</strong>
+
+                            பதிவு செய்யாதவர்கள், பதிவு செய்தவர்கள் எல்லோரும் விளம்பர செய்துள்ள வரன்களை தினமும் இலவசமாக
+                            பார்க்க முடிவதால் விரைவில் திருமணம் முடிய ஏதுவாகிறது.
+
+                            நமது அதி அற்புதமான வெளிப்படையான சேவையை தாங்களும், தங்கள் உறவினர்களையும் பயன்படுத்த செய்து
+                            எல்லோருக்கும் உரிய வயதில் திருமணம் முடித்து, எல்லாம் வல்ல கடவுள் அருளால் எல்லாவளமும், நலமும்
+                            பெற்று வாழ்வாங்கு வாழ வாழ்த்துகிறோம்.
+
+                            <div style="text-align: right;">
+                                <strong>தங்கள் அன்புள்ள</strong>
+                                கேதார செல்வர் K. Chandrasekar <a href="tel:+918015666798">(+91 8015666798)</a>
+                                <a href="http://aahakalyanam.co.in/" target="_blank"
+                                    rel="noopener noreferrer">http://aahakalyanam.co.in/</a>
+                            </div>
+
+                            உங்கள் முழு ஜாதக விபரம் + புகைப்படத்துடன், உலகின் எந்த மூலையில் இருந்தும் நிமிடத்தில் பதிவு
+                            செய்யவும், பணம் செலுத்தவும் இலவசமாக பார்க்கவும், திருமணம் முடிக்கவும் முடியும்.
+
+                            மேலும் புதிய பதிவு, பதிவில் திருத்தம், சந்தேகம், சிரமம், ஆலோசனைக்கு
+                            Email ID: <a href="mailto:aahakalyanaminfo@gmail.com">aahakalyanaminfo@gmail.com</a>
+                            கைபேசி எண்: <a href="tel:+918015666798">(+91 8015666798)</a>
+
+                            Pls AFTER Pay Send mail: <a
+                                href="mailto:aahakalyanaminfo@gmail.com">aahakalyanaminfo@gmail.com</a> / <a
+                                href="tel:+918015666798">(+91 8015666798)</a>
+
+                            பெற்றோர்களே, திருமண நிகழ்வுக்கு காத்திருக்கும் இளஞ்சர்களே,
+                            அன்பர்களே, உங்களுக்கு நல்வழி காட்டவே இந்த திருமண செய்தி...
+
+                            ஒருவருக்கு திருமணம் நடக்கவும்,
+                            நடக்காமல் இருக்கவும் பல காரணங்கள் உள்ளது...
+
+                            <strong>திருமண வரன் தேடும் முறை</strong>
+
+                            ( சம்பந்த பட்ட வரனுக்கு விரைவில் திருமணம் ஆகவேண்டும் என்ற எண்ணம் இருக்க்கும் பட்சத்தில் நமது
+                            இந்திய தேச ஹிந்து திருமண சட்டப்படி வயது,தகுதிகள்,குடியுரிமை...இருக்க வேண்டும் மேலும்
+                            குடும்பம் நடத்த போதுமான உடல் வளர்ச்சியும் , மனமும் தெளிவு பெற்ற குறைந்த பட்ச ஆணின் மண வயது
+                            ,பெண்ணின் மண வயது இருக்க வேண்டும் )
+                            <div class="space-y-6 leading-relaxed text-justify margin-0">
+                                <p>
+                                    <strong>1.</strong> நாம் படித்த உடன் விரைவில் வேலை கிடைக்க பல வேலைவாய்ப்பு மையங்கள்,
+                                    இணையதளங்களில் பதிவு செய்வது போல, நமக்கு திருமணம் விரைவில் நடைபெற திருமண தகவல்
+                                    மையங்கள் மற்றும் marriage websites-ல் பதிவு செய்வது நடைமுறை.
+
+                                    வரன் விவரங்களை உள்ளடக்கிய பக்க பயோடேட்டா தயார் செய்ய வேண்டும்: பிறந்த தேதி, படிப்பு,
+                                    வேலை/வருமானம், முகவரி, தொடர்புக்கு இரண்டு கைபேசி எண்கள்.
+
+                                    முழு விபரம் மற்றும் ஜாதகம் அடங்கிய ஒரு பக்க பயோடேட்டாவை DTP செய்து குறைந்தது பத்து
+                                    நகல்களை எப்போதும் வைத்திருங்கள். கூடுதலாக 10 அஞ்சல் அட்டை அளவு (postcard size) பெரிய
+                                    நல்ல புகைப்படம் அல்லது full size/half size photo இருக்கட்டும்.
+
+                                    புகைப்படம் எடுக்க நேரம் இல்லை என பழைய குட்டி பாஸ்போர்ட் அளவு புகைப்படம்
+                                    வைத்துக்கொண்டு ஒப்புக்கு வைத்திருந்தால், இதை விட திருமணம் தள்ளி போக வேறு காரணமே தேவை
+                                    இல்லை!
+                                </p>
+                                <p>
+                                    <strong>2.</strong> லட்சங்களும் லட்சணமும் கைமாறும் கல்யாண வைபோகத்தில் சில ஆயிரம்
+                                    செலவு செய்வது நல்லது. தகவல் மையங்களில் பதிவு செய்வதை அதிகமாக்குங்கள் — செலவு குறைவு,
+                                    பலன் அதிகம்.
+
+                                    முழுமையான விபரம் கொடுக்காத திருமண அமைப்பாளர்கள், கமிஷன் ப்ரோக்கர்கள், திருமண
+                                    ஏற்பாட்டுக்குழுக்களால் வீண் அலைச்சல் மற்றும் செலவுகள் ஏற்படும்.
+
+                                    சமுதாய திருமண தகவல் மையங்களில் பதிவு செய்வது மிகவும் நல்லது. எதிர்பார்ப்புக்கு ஏற்ப
+                                    வரன் தேடுவதை அதிகமாக்குங்கள் (திருமண தகவல் மையம், matrimony websites). தேட
+                                    முடியாதவர்கள் எதிர்பார்ப்பை குறைத்தால் திருமணம் கைகூடும்.
+                                </p>
+                                <p>
+                                    <strong>3.</strong> அப்ப அப்ப அதிக பணம் கேட்டு தொல்லை கொடுக்காத திருமண இணையதளங்களில்
+                                    பதிவு செய்வது நல்லது.
+
+                                    நம்ம தில்லை திருமண தகவல் மையத்துக்கும் புகைப்படத்துடன் ஒரு முழு ஜாதக விபரத்தை
+                                    அனுப்பி வையுங்கள் — இலவசமாக பதிவு செய்து கொள்கிறோம்.
+                                </p>
+                                <p>
+                                    <strong>4.</strong> வரன் தேடுபவர் நேர்மறை எண்ணம் (positive thinking) மற்றும் அனுபவம்
+                                    உள்ளவராக இருந்தால், விரைவில் திருமணம் நடைபெறும் வாய்ப்பு அதிகம்.
+
+                                    மாதம் ஒருமுறை பதிவு செய்த மையங்களில் வரன் தேடுங்கள், அல்லது தொடர்ந்து இணையதளங்களில்
+                                    தேடுங்கள்.
+                                    எதிர்பார்ப்புகள்: வயது, படிப்பு, நிறம், உடலமைப்பு, உயரம், குடும்ப அமைப்பு,
+                                    விருப்பு/வெறுப்பு — இவை அனைத்தையும் ஒரு note புத்தகத்தில் எழுதி கொண்டு வருங்கள்.
+
+                                    ஒவ்வொன்றாக தொலைபேசியில் தொடர்பு கொண்டு, வரன் குடும்பத்துடன் நேரடியாக உரையாடுங்கள்.
+                                    இருவருக்கும் பிடித்திருந்தால், பயோடேட்டா மற்றும் புகைப்படங்களை மெயில் அல்லது
+                                    கடிதம்/கூரியர் மூலமாக பரிமாறிக் கொள்ளலாம்.
+                                </p>
+                                <p>
+                                    <strong>5.</strong> இரு குடும்ப பெரியவர்களின் ஒப்புதலுடன் மட்டுமே வரன் பார்க்க
+                                    ஏற்பாடு செய்யுங்கள். இல்லையெனில் வரன் பார்க்கவே வேண்டாம் — இதனால் மனஉளைச்சல் மற்றும்
+                                    பணவிரயம் தவிர்க்கப்படும்.
+
+                                    உலகில் பலவிதமான ஆட்கள் இருக்கிறார்கள் — அன்பானவர்கள், ஏழைகள், பணக்காரர்கள், அதிகம்
+                                    படித்தவர்கள், கருமிகள், நல்லவர்கள், கெட்டவர்கள்...
+                                    இதை மறக்காதீர்கள். மனநலத்துடன், நம்பிக்கையோடு தொடர்ந்த முயற்சி செயுங்கள். திருமணம்
+                                    விரைவில் நடைபெறும்.
+                                </p>
+                                <p>
+                                    <strong>6.</strong> வரன் பிடிக்கிறதா இல்லையா என பதில் சொல்ல யார் தயங்குகிறாரோ அல்லது
+                                    தள்ளி போடுகிறாரோ — அவருக்கு பிடிக்கவில்லை என்பதற்கே சமம். வேண்டுமானால் காரணம் கேட்டு
+                                    தெரிந்து கொள்ளலாம்.
+                                </p>
+                            </div>
+                            பேர் பொருத்தம் என்கிற நட்சத்திரமே போதுமானது
+                            ராஜு -கழுத்து பொருத்தம் ,யோனி,-என்கிற வாயிற்று பொருத்தம் ....என பத்து பொருத்தம் .இருக்கிறது
+                            இதுவே போதுமானது என்பது என் கருத்து ,
+
+
+                            கட்டதையே பார்த்துக்கொண்டு இருந்தால் கல்யாணம் பண்ண முடியாது,
+                            குற்றதையே பார்த்துக்கொண்டு இருந்தால் குடும்பம் நடத்த முடியாது. - பழமொழி
+
+                            இறைவனை உறுதியோடு பற்றிக் கொண்ட பக்தர்களுக்கு நாள் என்ன செய்யும்? வினை தான் என்ன செய்யும்?
+                            நம்மை நாடி வந்த கோள் என்ன செய்யும்? கொடுங் கூற்று என்ன செய்யும்? - அருணகிரிநாதர்
+
+                            இறைவனையே தஞ்சமாக அடைந்த அடியார்களுக்கு கிரகங்களால் வரக்கூடிய துன்பம் வராது - ஞானசம்பந்தர்
+
+                            பிடித்து இருந்தால் திருமணத்தை நல்ல நாள் பார்த்து முடிக்குங்கள். சுபம்!
+
+                            இலவசமாக பதிவு செய்ய வேண்டுமா?
+                            தங்கள் முழு ஜாதக விபரதுடன் + புகைப்படத்தை இணைத்து
+
+                            Address: 109/2, சீனிவாசன் சுவாமி தெரு, பழமலை சுவாமி கார்டன், ஆலடி ரோடு, விருத்தாசலம்-606001
+                            Phone: <a href="tel:+918015666798">(+91 8015666798)</a>
+                            Email: <a href="mailto:aahakalyanaminfo@gmail.com">aahakalyanaminfo@gmail.com</a> 
+
+                            இந்த முகவரிக்கு அஞ்சல் அல்லது கொரியர் மூலமாக அனுப்புங்கள்,
+                            நாங்கள் இலவசமாக பதிவு செய்து
+                            வரன் தேடும் மற்ற பெற்றோர்கள் பார்வைக்கு உங்கள் முழு விபரத்தை பார்வைக்கு (Files) வைக்கிறோம்.
+
+                            மேலும்
+                            வரன் தேட விரும்பினால் மட்டும் ரூ.500 சேவைக்கட்டணம் செலுத்துங்கள்.
+                            வேறு கட்டணமோ, கமிஷனோ எப்போதும் பெறுவது இல்லை.
+
+                            கட்டணம் செலுத்திய வரன் விபரத்தை நமது இணையதளத்தில் எல்லோரும் இலவசமாக பார்க்கும் படி விளம்பரம்
+                            செய்கிறோம்:
+                            <a href="http://aahakalyanam.co.in/" target="_blank">http://aahakalyanam.co.in/</a>
+
+                            மேலும்
+                            Free Horoscope, Astro Tips and Marriage Tips Helpful NEWS Just click:
+                            <a href="http://aahakalyanam.co.in/" target="_blank">http://aahakalyanam.co.in/</a>
+
+                            <h3 class="text-center"> எல்லோருக்கும் விரைவில் திருமணம் முடிந்து வளமுடன் வாழ வாழ்த்துக்கள்.</h3>
                         </div>
-                    
-                        <p class="mt-4 text-center"><strong>By registering on Aha Kalyanam, you agree to follow these Terms & Conditions.</strong></p>
-                    
+
+                        <p class="mt-4 text-center"><strong>By registering on Aha Kalyanam, you agree to follow these
+                                Terms & Conditions.</strong></p>
+
                     </div>
 
 
 
 
 
-<!-- 
+                    <!-- 
                     <div class="col-lg-6">
                         <div class="ab-wel-rhs">
                             <div class="ab-wel-tit">
@@ -550,15 +717,15 @@
                 </div>
             </div>
         </div>
-    </section> 
+    </section>
 
     <section class="wed-hom-footer">
         <div class="container">
             <div class="row foot-supp">
                 <h2>
-                    <span>Free support:</span> +91 8015666798 &nbsp;&nbsp;|&nbsp;&nbsp; 
+                    <span>Free support:</span> +91 8015666798 &nbsp;&nbsp;|&nbsp;&nbsp;
                     <span>Email:</span> <span style="text-transform: lowercase;">aahakalyanaminfo@gmail.com</span>
-                  </h2>
+                </h2>
             </div>
             <div class="row wed-foot-link wed-foot-link-1">
                 <div class="col-md-4">
@@ -572,9 +739,9 @@
                     <ul>
                         <li><a href="about-us.html">About us</a>
                         </li>
-                                            </ul>
+                    </ul>
                 </div>
-            
+
             </div>
             <div class="row foot-count">
                 <p>Aahakalyanam - Trusted by over thousands of Boys & Girls for successfull marriage. <a
@@ -589,7 +756,8 @@
         <div class="cr">
             <div class="container">
                 <div class="row">
-                    <p>Copyright © <span id="cry">2025</span> <a href="https://www.theateliercreation.com/" target="_blank">theateliercreattion.com</a> All
+                    <p>Copyright © <span id="cry">2025</span> <a href="https://www.theateliercreation.com/"
+                            target="_blank">theateliercreattion.com</a> All
                         rights reserved.</p>
                 </div>
             </div>
@@ -648,26 +816,26 @@
 
     <!-- RECENT COUPLES -->
     <!-- <section> -->
-        <!-- <div class="hom-partners abo-partners" id="testimonials">
+    <!-- <div class="hom-partners abo-partners" id="testimonials">
             <div class="container">
                 <div class="row"> -->
-                    <!-- SUB TITLE -->
-                    <!-- <div class="sub-tit-caps">
+    <!-- SUB TITLE -->
+    <!-- <div class="sub-tit-caps">
                         <h2>Customer <span class="animate animate__animated" data-ani="animate__flipInX"
                                 data-dely="0.1">Testimonials</span></h2>
                         <p>Fusce imperdiet ullamcorper fringilla.</p>
                     </div> -->
 
-                    <!-- TESTMONIAL BACKGROUND SHAPES -->
-                    <!-- <div class="wedd-shap">
+    <!-- TESTMONIAL BACKGROUND SHAPES -->
+    <!-- <div class="wedd-shap">
                         <span class="abo-shap-1"></span>
                         <span class="abo-shap-3"></span>
                     </div> -->
 
-                    <!-- SLIDER START -->
-                    <!-- <div id="demo" class="carousel slide" data-ride="carousel"> -->
-                        <!-- Wrapper for slides -->
-                        <!-- <div class="carousel-inner">
+    <!-- SLIDER START -->
+    <!-- <div id="demo" class="carousel slide" data-ride="carousel"> -->
+    <!-- Wrapper for slides -->
+    <!-- <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <ul>
                                     <li>
@@ -827,8 +995,8 @@
                                 </ul>
                             </div>
                         </div> -->
-                        <!-- Left and right controls -->
-                        <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <!-- Left and right controls -->
+    <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
                             <span class="carousel-control-prev-icon"></span>
                         </a>
                         <a class="carousel-control-next" href="#demo" data-slide="next">
@@ -918,18 +1086,18 @@
 
     <!-- START -->
     <!-- <section> -->
-        <!-- <div class="ab-faq" id="faq">
+    <!-- <div class="ab-faq" id="faq">
 
             <div class="container">
                 <div class="row"> -->
-                    <!-- SUB TITLE -->
-                    <!-- <div class="sub-tit-caps">
+    <!-- SUB TITLE -->
+    <!-- <div class="sub-tit-caps">
                         <h2>KB <span class="animate animate__animated" data-ani="animate__flipInX"
                                 data-dely="0.1">knowledge base</span></h2>
                         <p>Fusce imperdiet ullamcorper fringilla.</p>
                     </div> -->
-                    <!-- TESTMONIAL BACKGROUND SHAPES -->
-                    <!-- <div class="wedd-shap">
+    <!-- TESTMONIAL BACKGROUND SHAPES -->
+    <!-- <div class="wedd-shap">
                         <span class="abo-shap-1"></span>
                         <span class="abo-shap-2"></span>
                         <span class="abo-shap-4"></span>
@@ -1089,7 +1257,7 @@
     </section> -->
     <!-- END -->
     <!-- COPYRIGHTS -->
-        <!-- <section>
+    <!-- <section>
             <div class="cr">
                 <div class="container">
                     <div class="row">
@@ -1102,57 +1270,57 @@
     <!-- END -->
     <!-- Optional JavaScript -->
 
-    
 
+    <script src="js/config.js"></script>
 
 
     <script>
-      async function handleLogout(e) {
-        e.preventDefault();
-        const buttonId = e.target.id;
-        const token = localStorage.getItem("access_token");
+        async function handleLogout(e) {
+            e.preventDefault();
+            const buttonId = e.target.id;
+            const token = localStorage.getItem("access_token");
 
-        try {
-            const response = await fetch("http://159.89.174.77:5000/api/logout", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/logout`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    }
+                });
+
+                if (response.status === 200) {
+                    localStorage.removeItem("access_token");
+
+                    if (buttonId === "logoutBtn") {
+                        alert("User logged out successfully");
+                        window.location.href = "index.html";
+                    } else if (buttonId === "adminLogoutBtn") {
+                        alert("Admin logged out successfully");
+                        window.location.href = "admin-login.html";
+                    }
+                } else {
+                    localStorage.removeItem("access_token");
+                    alert("Session expired, please login again.");
+                    location.reload();
                 }
-            });
-
-            if (response.status === 200) {
-                localStorage.removeItem("access_token");
-
-                if (buttonId === "logoutBtn") {
-                    alert("User logged out successfully");
-                    window.location.href = "index.html";
-                } else if (buttonId === "adminLogoutBtn") {
-                    alert("Admin logged out successfully");
-                    window.location.href = "admin-login.html";
-                }
-            } else {
-                localStorage.removeItem("access_token");
-                alert("Session expired, please login again.");
-                location.reload();
+            } catch (error) {
+                console.error("Logout error:", error);
+                alert("Something went wrong. Please try again later.");
             }
-        } catch (error) {
-            console.error("Logout error:", error);
-            alert("Something went wrong. Please try again later.");
         }
-    }
 
-    window.onload = function () {
-        document.getElementById("logoutBtn").addEventListener("click", handleLogout);
-        document.getElementById("logoutBtnMob").addEventListener("click", handleLogout);
-    };
+        window.onload = function () {
+            document.getElementById("logoutBtn").addEventListener("click", handleLogout);
+            document.getElementById("logoutBtnMob").addEventListener("click", handleLogout);
+        };
 
-const role = getUserRoleFromToken();
+        const role = getUserRoleFromToken();
 
-console.log("Detected User Role:", role); // Debug
+        console.log("Detected User Role:", role); // Debug
 
-// Default: hide all controlled elements
-// role based menu Start
+        // Default: hide all controlled elements
+        // role based menu Start
         document.addEventListener("DOMContentLoaded", function () {
 
             const role = getUserRoleFromToken();
@@ -1192,7 +1360,7 @@ console.log("Detected User Role:", role); // Debug
                     document.querySelector(".logoutBtnMob")?.classList.remove("hide");
                     document.querySelector(".dashboard-mob")?.classList.remove("hide");
                     document.querySelector(".user-profile-mob")?.classList.remove("hide");
-                    
+
                     break;
                 case "moderator":
                     document.querySelector(".my-profile")?.classList.remove("hide");
@@ -1215,6 +1383,7 @@ console.log("Detected User Role:", role); // Debug
                     break;
                 case "viewer": // not signed in
                     document.querySelector(".signin-only")?.classList.remove("hide");
+                    document.querySelector(".register-link")?.classList.remove("hide");
                     document.querySelector(".plans-link")?.classList.remove("hide");
                     document.querySelector(".mob-signin")?.classList.remove("hide");
                     document.querySelector(".mob-signin1")?.classList.remove("hide");
@@ -1226,25 +1395,25 @@ console.log("Detected User Role:", role); // Debug
             }
 
 
-           
+
         });
 
-// role based menu End
-function getUserRoleFromToken() {
-                const token = localStorage.getItem("access_token");
+        // role based menu End
+        function getUserRoleFromToken() {
+            const token = localStorage.getItem("access_token");
 
-                if (!token) return "viewer"; // Not signed in
+            if (!token) return "viewer"; // Not signed in
 
-                try {
-                    const payload = JSON.parse(atob(token.split(".")[1]));
-                    const role = payload.role || "viewer"; // adjust if your payload key is different
-                    localStorage.setItem("user_role", role); // Store role for later use
-                    return role;
-                } catch (err) {
-                    console.error("Failed to decode token", err);
-                    return "viewer";
-                }
+            try {
+                const payload = JSON.parse(atob(token.split(".")[1]));
+                const role = payload.role || "viewer"; // adjust if your payload key is different
+                localStorage.setItem("user_role", role); // Store role for later use
+                return role;
+            } catch (err) {
+                console.error("Failed to decode token", err);
+                return "viewer";
             }
+        }
 
 
     </script>
@@ -1253,6 +1422,7 @@ function getUserRoleFromToken() {
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/config.js"></script>
 </body>
 
 </html>
