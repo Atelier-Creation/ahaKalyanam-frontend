@@ -430,7 +430,7 @@
                                                 <div class="form-group">
                                                     <label>sub_caste</label>
                                                     <select class="chosen-select form-control">
-                                                       <option selected disabled>Sub Caste</option>
+                                                       <option value="">Sub Caste</option>
                                                     <option>ராவ்</option>
                                                     <option>சிங்</option>
                                                     <option>சைவப் பிள்ளை</option>
@@ -528,7 +528,7 @@
                                                 <div class="form-group">
                                                     <label>caste</label>
                                                     <select class="chosen-select form-control">
-                                                    <option disabled selected>Caste</option>
+                                                    <option value="">Caste</option>
                                                     <option value="கைக்கொள்ளர்">கைக்கொள்ளர்</option>
                                                     <option>குறும்பர் (Kurumbar)</option>
                                                     <option>குறும்ப கவுண்டர்</option>
@@ -1763,6 +1763,7 @@ window.location.href = `login.html?redirect=${currentUrl}`;
 
                 // Convert selectedValues object into query parameters
                 let queryParams = new URLSearchParams(selectedValues).toString();
+                console.log("The query params are:", queryParams);
                 let apiUrl = `${API_BASE_URL}/api/quick_search?${queryParams}`;
 
                 try {
