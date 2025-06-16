@@ -2935,6 +2935,9 @@ table th {
     font-weight: 500;
     color: rgb(96, 113, 155);
 }
+.form-check-label a:hover{
+    color:#ce1b6e;
+}
 
 .form-login .form-group .form-check-label input[type="checkbox"] {
     margin-top: 3px;
