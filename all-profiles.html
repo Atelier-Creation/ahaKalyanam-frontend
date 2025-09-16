@@ -938,12 +938,25 @@
 
                             </ul>
                             <div class="d-flex justify-content-center align-items-center my-3" style="width: inherit;">
-                                <button id="back-btn" title="Previous" class=" nav-btn mx-3"><i
-                                        class="fas fa-chevron-left"></i></button>
-                                <span id="page-indicator" class="mx-2 fw-bold"></span>
-                                <button id="view-more-btn" title="Next" class="nav-btn mx-3"><i
-                                        class="fas fa-chevron-right"></i></button>
-                            </div>
+  <button id="back-btn" title="Previous" class="nav-btn mx-3">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+
+  <span id="page-indicator" class="mx-2 fw-bold"></span>
+  <button id="view-more-btn" title="Next" class="nav-btn mx-3">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+    <!-- Page jump input -->
+  <input 
+    type="number" 
+    id="page-input" 
+    class="form-control mx-2" 
+    style="width: 70px; text-align: center;" 
+    min="1"
+  >
+  <button id="go-btn" class="btn btn-warning btn-sm m-0 p-2">Go</button>
+</div>
+
                         </div>
 
 
@@ -1380,6 +1393,48 @@
 
             loadNextBatch();
         }
+
+        document.getElementById("go-btn").addEventListener("click", () => {
+    const pageInput = document.getElementById("page-input");
+    const pageNumber = parseInt(pageInput.value, 10);
+    if (!isNaN(pageNumber)) {
+        jumpToPage(pageNumber);
+    }
+});
+document.getElementById("page-input").addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        const pageNumber = parseInt(e.target.value, 10);
+        if (!isNaN(pageNumber)) {
+            jumpToPage(pageNumber);
+        }
+    }
+});
+
+function jumpToPage(pageNumber) {
+    const totalPages = Math.ceil(allProfiles.length / batchSize);
+
+    if (pageNumber < 1 || pageNumber > totalPages) {
+        alert(`Please enter a valid page number between 1 and ${totalPages}`);
+        return;
+    }
+
+    // Set the correct index
+    currentIndex = (pageNumber - 1) * batchSize;
+
+    // Load that batch
+    const batch = allProfiles.slice(currentIndex, currentIndex + batchSize);
+    populateProfiles(batch);
+
+    toggleButtons();
+
+    // Scroll to top
+    const target = document.getElementById("profilestop");
+    if (target) {
+        const yOffset = -200;
+        const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+    }
+}
 
         // Render profiles in the DOM
         function populateProfiles(profiles) {

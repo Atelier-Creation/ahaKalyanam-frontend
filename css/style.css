@@ -5054,8 +5054,24 @@ span.mail::before {
 .defa-prof-pg .lhs .profile {
     margin-top: 0px;
 }
+.pr-bio-info ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* two columns */
+    gap: 10px 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
 .pr-bio-info ul li {
+    font-weight: 400;
+    font-size: 14px;
+    padding: 0px 8px 10px 24px;
+    position: relative;
+    white-space: normal; /* wrap text */
+}
+
+/* .pr-bio-info ul li {
     float: left;
     width: 50%;
     font-weight: 400;
@@ -5065,7 +5081,7 @@ span.mail::before {
     text-overflow: ellipsis;
     white-space: pre;
     overflow: hidden;
-}
+} */
 
 .pr-bio-info ul li::before {
     content: "\f105";
@@ -12988,7 +13004,6 @@ wrapper1 {
     height: 38px;
     text-align: center;
     margin-right: 8px;
-
 }
 
 .cell1 {
