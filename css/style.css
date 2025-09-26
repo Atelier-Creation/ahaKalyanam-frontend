@@ -5056,7 +5056,7 @@ span.mail::before {
 }
 .pr-bio-info ul {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* two columns */
+    grid-template-columns: 1fr; /* two columns */
     gap: 10px 20px;
     list-style: none;
     padding: 0;
